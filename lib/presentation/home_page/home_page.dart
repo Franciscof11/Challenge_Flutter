@@ -1,5 +1,5 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
-import 'package:challenge_flutter/data/student_repositories.dart';
+import 'package:challenge_flutter/data/student_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';

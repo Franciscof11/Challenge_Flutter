@@ -1,3 +1,4 @@
+import 'package:challenge_flutter/data/auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,10 +11,11 @@ class SignInPage extends StatelessWidget {
 
   final formKey = GlobalKey<FormState>();
 
-  final userController = TextEditingController();
+  final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
 
+  final authRepository = AuthRepository();
   @override
   Widget build(BuildContext context) {
     double widthDevice = MediaQuery.of(context).size.width;
@@ -33,12 +35,16 @@ class SignInPage extends StatelessWidget {
                   //
                   const SizedBox(height: 60),
                   CustomTextFormField(
-                      label: 'Usuário', controller: userController),
+                    label: 'Email',
+                    controller: emailController,
+                    type: FormTypes.email,
+                  ),
                   const SizedBox(height: 35),
                   CustomTextFormField(
                     label: 'Password',
                     isSecret: true,
                     controller: passwordController,
+                    type: FormTypes.password,
                   ),
                   const SizedBox(height: 10),
                   Align(
@@ -54,13 +60,8 @@ class SignInPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       formKey.currentState?.validate();
-/*                       signIn(
-                        email: userController.text,
-                        password: passwordController.text,
-                        context: context,
-                      ); */
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 80),
@@ -110,11 +111,6 @@ class SignInPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       formKey.currentState?.validate();
-/*                       signIn(
-                        email: userController.text,
-                        password: passwordController.text,
-                        context: context,
-                      ); */
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 80),
