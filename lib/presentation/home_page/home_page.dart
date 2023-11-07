@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
               //
               //
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.86,
+                height: MediaQuery.of(context).size.height * 0.8,
                 child: AnimationLimiter(
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
