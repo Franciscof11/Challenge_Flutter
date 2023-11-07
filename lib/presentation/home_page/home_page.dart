@@ -49,9 +49,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              //
-              //
-              //
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: AnimationLimiter(
@@ -85,17 +82,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              //
-              //
-              //
-/*               ListView.builder(
-                shrinkWrap: true,
-                itemCount: students.length,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) => StudentListTile(
-                  student: students[index],
-                ),
-              ) */
             ],
           ),
         ),
@@ -104,7 +90,7 @@ class HomePage extends StatelessWidget {
       //
       //
       drawer: Drawer(
-        width: MediaQuery.of(context).size.width * 0.6,
+        width: MediaQuery.of(context).size.width * 0.8,
         shape: const ContinuousRectangleBorder(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(50),
@@ -173,38 +159,35 @@ class HomePage extends StatelessWidget {
       ),
       key: drawerKey,
       //
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.grey[200],
-          elevation: 0,
-          iconSize: 25,
-          fixedColor: mainBlue,
-          unselectedItemColor: mainBlue,
-          items: [
-            BottomNavigationBarItem(
-              label: 'Menu',
-              icon: GestureDetector(
-                onTap: () => drawerKey.currentState?.openDrawer(),
-                child: const Icon(
-                  Icons.menu,
-                ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey[200],
+        elevation: 0,
+        iconSize: 25,
+        fixedColor: mainBlue,
+        unselectedItemColor: mainBlue,
+        items: [
+          BottomNavigationBarItem(
+            label: 'Menu',
+            icon: GestureDetector(
+              onTap: () => drawerKey.currentState?.openDrawer(),
+              child: const Icon(
+                Icons.menu,
               ),
             ),
-            const BottomNavigationBarItem(
-              label: 'Notificações',
-              icon: Icon(
-                Icons.notifications_outlined,
-              ),
+          ),
+          const BottomNavigationBarItem(
+            label: 'Notificações',
+            icon: Icon(
+              Icons.notifications_outlined,
             ),
-            const BottomNavigationBarItem(
-              label: 'Perfil',
-              icon: Icon(
-                Icons.account_circle_outlined,
-              ),
+          ),
+          const BottomNavigationBarItem(
+            label: 'Perfil',
+            icon: Icon(
+              Icons.account_circle_outlined,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
