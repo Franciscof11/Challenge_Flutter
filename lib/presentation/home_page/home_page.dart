@@ -7,7 +7,78 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> drawerKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      drawer: Drawer(
+        width: MediaQuery.of(context).size.width * 0.6,
+        shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(50),
+            bottomRight: Radius.circular(50),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.home_rounded,
+                    color: mainBlue,
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Página Inicial',
+                    style: GoogleFonts.rubik(
+                      color: mainBlue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              SizedBox(
+                child: Divider(
+                  color: Colors.grey[600],
+                  thickness: 0.5,
+                ),
+              ),
+              const SizedBox(height: 15),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: mainBlue,
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Cadastrar Aluno',
+                    style: GoogleFonts.rubik(
+                      color: mainBlue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              SizedBox(
+                child: Divider(
+                  color: Colors.grey[600],
+                  thickness: 0.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      key: drawerKey,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: BottomNavigationBar(
@@ -16,20 +87,23 @@ class HomePage extends StatelessWidget {
           iconSize: 25,
           fixedColor: mainBlue,
           unselectedItemColor: mainBlue,
-          items: const [
+          items: [
             BottomNavigationBarItem(
               label: 'Menu',
-              icon: Icon(
-                Icons.menu,
+              icon: GestureDetector(
+                onTap: () => drawerKey.currentState?.openDrawer(),
+                child: const Icon(
+                  Icons.menu,
+                ),
               ),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               label: 'Notificações',
               icon: Icon(
                 Icons.notifications_outlined,
               ),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               label: 'Perfil',
               icon: Icon(
                 Icons.account_circle_outlined,
@@ -51,7 +125,7 @@ class HomePage extends StatelessWidget {
               'Cadastrar Aluno',
               style: GoogleFonts.rubik(
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
             ),
