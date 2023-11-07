@@ -5,17 +5,15 @@ import '../../config/constant_colors.dart';
 import '../widgets/custom_text_form_field.dart';
 import '../widgets/remove_glow_effect.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignInPage extends StatelessWidget {
+  SignInPage({super.key});
 
-  @override
-  State<SignInPage> createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
   final formKey = GlobalKey<FormState>();
+
   final userController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double widthDevice = MediaQuery.of(context).size.width;
