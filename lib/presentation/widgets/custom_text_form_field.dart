@@ -2,17 +2,24 @@ import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+enum FormTypes {
+  email,
+  password,
+}
+
 class CustomTextFormField extends StatefulWidget {
   final String label;
   final Icon? prefixIcon;
   final bool isSecret;
   final TextEditingController controller;
+  final FormTypes type;
   const CustomTextFormField({
     super.key,
     required this.label,
     this.prefixIcon,
     this.isSecret = false,
     required this.controller,
+    required this.type,
   });
 
   @override
@@ -35,10 +42,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       obscureText: obscureText,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Campo obrigatório!';
+        switch (widget.type) {
+          case FormTypes.email:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            if (!widget.controller.text.contains('@') ||
+                !widget.controller.text.contains('.com')) {
+              return 'E-mail inválido!';
+            }
+            return null;
+
+          case FormTypes.password:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            return null;
         }
-        return null;
       },
       cursorColor: mainBlue,
       style: GoogleFonts.rubik(
