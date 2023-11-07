@@ -1,10 +1,149 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class SignInPage extends StatelessWidget {
+import '../../config/constant_colors.dart';
+import '../widgets/custom_text_form_field.dart';
+import '../widgets/remove_glow_effect.dart';
+
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
   @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  final formKey = GlobalKey<FormState>();
+  final userController = TextEditingController();
+  final passwordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    double widthDevice = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: RemoveGlowEffect(
+        child: SingleChildScrollView(
+          child: Form(
+            key: formKey,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  const SizedBox(height: 120),
+                  //
+                  Image.asset('assets/icon.png'),
+                  //
+                  const SizedBox(height: 60),
+                  CustomTextFormField(
+                      label: 'Usuário', controller: userController),
+                  const SizedBox(height: 35),
+                  CustomTextFormField(
+                    label: 'Password',
+                    isSecret: true,
+                    controller: passwordController,
+                  ),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "Esqueceu a senha?",
+                      style: GoogleFonts.rubik(
+                        color: Colors.grey[700],
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  ElevatedButton(
+                    onPressed: () {
+                      formKey.currentState?.validate();
+/*                       signIn(
+                        email: userController.text,
+                        password: passwordController.text,
+                        context: context,
+                      ); */
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 80),
+                      backgroundColor: mainBlue,
+                      shape: ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: Text(
+                      'Entrar',
+                      style: GoogleFonts.rubik(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: widthDevice <= 380 ? 80 : 130,
+                        child: Divider(
+                          color: Colors.grey[600],
+                          thickness: 0.5,
+                        ),
+                      ),
+                      Text(
+                        "Ou",
+                        style: GoogleFonts.rubik(
+                          color: Colors.grey[600],
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      SizedBox(
+                        width: widthDevice <= 380 ? 80 : 130,
+                        child: Divider(
+                          color: Colors.grey[600],
+                          thickness: 0.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: () {
+                      formKey.currentState?.validate();
+/*                       signIn(
+                        email: userController.text,
+                        password: passwordController.text,
+                        context: context,
+                      ); */
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 80),
+                      backgroundColor: Colors.white,
+                      shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                          side: const BorderSide(
+                            color: mainBlue,
+                            width: 2,
+                          )),
+                    ),
+                    child: Text(
+                      'Cadastrar',
+                      style: GoogleFonts.rubik(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: mainBlue,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
