@@ -1,6 +1,10 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
+import 'package:challenge_flutter/data/student_repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../widgets/student_list_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,6 +14,95 @@ class HomePage extends StatelessWidget {
     GlobalKey<ScaffoldState> drawerKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Lista de Alunos',
+                    style: GoogleFonts.rubik(
+                      color: mainBlue,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(2.5),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(13),
+                        border: Border.all(
+                          color: mainBlue,
+                          width: 2,
+                        )),
+                    child: const Icon(
+                      Icons.search,
+                      color: mainBlue,
+                      size: 32,
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 5),
+              //
+              //
+              //
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.86,
+                child: AnimationLimiter(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: students.length,
+                    itemBuilder: (context, index) {
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        delay: const Duration(milliseconds: 100),
+                        child: SlideAnimation(
+                          duration: const Duration(milliseconds: 2500),
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          horizontalOffset: 30,
+                          verticalOffset: 300.0,
+                          child: FlipAnimation(
+                            duration: const Duration(milliseconds: 3000),
+                            curve: Curves.fastLinearToSlowEaseIn,
+                            flipAxis: FlipAxis.y,
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 7),
+                                child: StudentListTile(
+                                  student: students[index],
+                                )),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              //
+              //
+              //
+/*               ListView.builder(
+                shrinkWrap: true,
+                itemCount: students.length,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) => StudentListTile(
+                  student: students[index],
+                ),
+              ) */
+            ],
+          ),
+        ),
+      ),
+      //
+      //
+      //
       drawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.6,
         shape: const ContinuousRectangleBorder(
@@ -79,6 +172,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       key: drawerKey,
+      //
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: BottomNavigationBar(
@@ -134,14 +228,6 @@ class HomePage extends StatelessWidget {
         backgroundColor: mainBlue,
         elevation: 0,
         onPressed: () {},
-      ),
-      backgroundColor: Colors.grey[200],
-      body: const Column(
-        children: [
-          Text(
-            'Alo',
-          ),
-        ],
       ),
     );
   }
