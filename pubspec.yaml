@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.5
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -28,3 +29,11 @@ flutter_launcher_icons:
   remove_alpha_ios: true
   image_path: "assets/icon.png"
   adaptive_icon_background: "#FFFFFF"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/splash.png
+
+  android_12:
+    color: "#ffffff"
+    image: assets/splash.png
