@@ -1,6 +1,7 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
 import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
+import 'package:challenge_flutter/presentation/widgets/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -39,6 +40,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const SizedBox(height: 50),
                 Row(
@@ -68,7 +70,15 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 20),
+                Loader<StudentBloc, StudentState>(
+                  selector: (state) {
+                    return state.maybeWhen(
+                      loading: () => true,
+                      orElse: () => false,
+                    );
+                  },
+                ),
                 BlocSelector<StudentBloc, StudentState, List<Student>>(
                   selector: (state) {
                     return state.maybeWhen(
@@ -79,33 +89,37 @@ class HomePage extends StatelessWidget {
                   builder: (context, students) => SizedBox(
                     height: MediaQuery.of(context).size.height * 0.8,
                     child: AnimationLimiter(
-                      child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: students.length,
-                        itemBuilder: (context, index) {
-                          return AnimationConfiguration.staggeredList(
-                            position: index,
-                            delay: const Duration(milliseconds: 100),
-                            child: SlideAnimation(
-                              duration: const Duration(milliseconds: 2500),
-                              curve: Curves.fastLinearToSlowEaseIn,
-                              horizontalOffset: 30,
-                              verticalOffset: 300.0,
-                              child: FlipAnimation(
-                                duration: const Duration(milliseconds: 3000),
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: students.length,
+                          itemBuilder: (context, index) {
+                            return AnimationConfiguration.staggeredList(
+                              position: index,
+                              delay: const Duration(milliseconds: 100),
+                              child: SlideAnimation(
+                                duration: const Duration(milliseconds: 2500),
                                 curve: Curves.fastLinearToSlowEaseIn,
-                                flipAxis: FlipAxis.y,
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 7),
-                                    child: StudentListTile(
-                                      student: students[index],
-                                    )),
+                                horizontalOffset: 30,
+                                verticalOffset: 300.0,
+                                child: FlipAnimation(
+                                  duration: const Duration(milliseconds: 3000),
+                                  curve: Curves.fastLinearToSlowEaseIn,
+                                  flipAxis: FlipAxis.y,
+                                  child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 7),
+                                      child: StudentListTile(
+                                        student: students[index],
+                                      )),
+                                ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),

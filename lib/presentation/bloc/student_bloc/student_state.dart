@@ -9,4 +9,6 @@ class StudentState with _$StudentState {
 
   factory StudentState.error({required String message}) =
       _StudentStateErrorState;
+
+  factory StudentState.loading() = _StudentStateLoadingState;
 }

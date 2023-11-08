@@ -20,10 +20,12 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
     Emitter<StudentState> emit,
   ) async {
     try {
+      emit(StudentState.loading());
+
       final students = await _repository.getAllStudents();
 
-      await Future.delayed(const Duration(seconds: 1));
-      throw Exception();
+      await Future.delayed(const Duration(seconds: 2));
+
       emit(StudentState.data(students: students));
     } catch (e) {
       emit(StudentState.error(message: 'Erro ao buscar estudantes!'));

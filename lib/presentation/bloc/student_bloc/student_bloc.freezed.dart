@@ -171,6 +171,7 @@ mixin _$StudentState {
     required TResult Function() initial,
     required TResult Function(List<Student> students) data,
     required TResult Function(String message) error,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -178,6 +179,7 @@ mixin _$StudentState {
     TResult? Function()? initial,
     TResult? Function(List<Student> students)? data,
     TResult? Function(String message)? error,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -185,6 +187,7 @@ mixin _$StudentState {
     TResult Function()? initial,
     TResult Function(List<Student> students)? data,
     TResult Function(String message)? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,6 +196,7 @@ mixin _$StudentState {
     required TResult Function(_StudentInitialState value) initial,
     required TResult Function(_StudentStateData value) data,
     required TResult Function(_StudentStateErrorState value) error,
+    required TResult Function(_StudentStateLoadingState value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -200,6 +204,7 @@ mixin _$StudentState {
     TResult? Function(_StudentInitialState value)? initial,
     TResult? Function(_StudentStateData value)? data,
     TResult? Function(_StudentStateErrorState value)? error,
+    TResult? Function(_StudentStateLoadingState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -207,6 +212,7 @@ mixin _$StudentState {
     TResult Function(_StudentInitialState value)? initial,
     TResult Function(_StudentStateData value)? data,
     TResult Function(_StudentStateErrorState value)? error,
+    TResult Function(_StudentStateLoadingState value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -272,6 +278,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     required TResult Function() initial,
     required TResult Function(List<Student> students) data,
     required TResult Function(String message) error,
+    required TResult Function() loading,
   }) {
     return initial();
   }
@@ -282,6 +289,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     TResult? Function()? initial,
     TResult? Function(List<Student> students)? data,
     TResult? Function(String message)? error,
+    TResult? Function()? loading,
   }) {
     return initial?.call();
   }
@@ -292,6 +300,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     TResult Function()? initial,
     TResult Function(List<Student> students)? data,
     TResult Function(String message)? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -306,6 +315,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     required TResult Function(_StudentInitialState value) initial,
     required TResult Function(_StudentStateData value) data,
     required TResult Function(_StudentStateErrorState value) error,
+    required TResult Function(_StudentStateLoadingState value) loading,
   }) {
     return initial(this);
   }
@@ -316,6 +326,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     TResult? Function(_StudentInitialState value)? initial,
     TResult? Function(_StudentStateData value)? data,
     TResult? Function(_StudentStateErrorState value)? error,
+    TResult? Function(_StudentStateLoadingState value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -326,6 +337,7 @@ class _$StudentInitialStateImpl implements _StudentInitialState {
     TResult Function(_StudentInitialState value)? initial,
     TResult Function(_StudentStateData value)? data,
     TResult Function(_StudentStateErrorState value)? error,
+    TResult Function(_StudentStateLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -414,6 +426,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     required TResult Function() initial,
     required TResult Function(List<Student> students) data,
     required TResult Function(String message) error,
+    required TResult Function() loading,
   }) {
     return data(students);
   }
@@ -424,6 +437,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     TResult? Function()? initial,
     TResult? Function(List<Student> students)? data,
     TResult? Function(String message)? error,
+    TResult? Function()? loading,
   }) {
     return data?.call(students);
   }
@@ -434,6 +448,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     TResult Function()? initial,
     TResult Function(List<Student> students)? data,
     TResult Function(String message)? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -448,6 +463,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     required TResult Function(_StudentInitialState value) initial,
     required TResult Function(_StudentStateData value) data,
     required TResult Function(_StudentStateErrorState value) error,
+    required TResult Function(_StudentStateLoadingState value) loading,
   }) {
     return data(this);
   }
@@ -458,6 +474,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     TResult? Function(_StudentInitialState value)? initial,
     TResult? Function(_StudentStateData value)? data,
     TResult? Function(_StudentStateErrorState value)? error,
+    TResult? Function(_StudentStateLoadingState value)? loading,
   }) {
     return data?.call(this);
   }
@@ -468,6 +485,7 @@ class _$StudentStateDataImpl implements _StudentStateData {
     TResult Function(_StudentInitialState value)? initial,
     TResult Function(_StudentStateData value)? data,
     TResult Function(_StudentStateErrorState value)? error,
+    TResult Function(_StudentStateLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -557,6 +575,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     required TResult Function() initial,
     required TResult Function(List<Student> students) data,
     required TResult Function(String message) error,
+    required TResult Function() loading,
   }) {
     return error(message);
   }
@@ -567,6 +586,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     TResult? Function()? initial,
     TResult? Function(List<Student> students)? data,
     TResult? Function(String message)? error,
+    TResult? Function()? loading,
   }) {
     return error?.call(message);
   }
@@ -577,6 +597,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     TResult Function()? initial,
     TResult Function(List<Student> students)? data,
     TResult Function(String message)? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -591,6 +612,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     required TResult Function(_StudentInitialState value) initial,
     required TResult Function(_StudentStateData value) data,
     required TResult Function(_StudentStateErrorState value) error,
+    required TResult Function(_StudentStateLoadingState value) loading,
   }) {
     return error(this);
   }
@@ -601,6 +623,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     TResult? Function(_StudentInitialState value)? initial,
     TResult? Function(_StudentStateData value)? data,
     TResult? Function(_StudentStateErrorState value)? error,
+    TResult? Function(_StudentStateLoadingState value)? loading,
   }) {
     return error?.call(this);
   }
@@ -611,6 +634,7 @@ class _$StudentStateErrorStateImpl implements _StudentStateErrorState {
     TResult Function(_StudentInitialState value)? initial,
     TResult Function(_StudentStateData value)? data,
     TResult Function(_StudentStateErrorState value)? error,
+    TResult Function(_StudentStateLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -628,4 +652,121 @@ abstract class _StudentStateErrorState implements StudentState {
   @JsonKey(ignore: true)
   _$$StudentStateErrorStateImplCopyWith<_$StudentStateErrorStateImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StudentStateLoadingStateImplCopyWith<$Res> {
+  factory _$$StudentStateLoadingStateImplCopyWith(
+          _$StudentStateLoadingStateImpl value,
+          $Res Function(_$StudentStateLoadingStateImpl) then) =
+      __$$StudentStateLoadingStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StudentStateLoadingStateImplCopyWithImpl<$Res>
+    extends _$StudentStateCopyWithImpl<$Res, _$StudentStateLoadingStateImpl>
+    implements _$$StudentStateLoadingStateImplCopyWith<$Res> {
+  __$$StudentStateLoadingStateImplCopyWithImpl(
+      _$StudentStateLoadingStateImpl _value,
+      $Res Function(_$StudentStateLoadingStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StudentStateLoadingStateImpl implements _StudentStateLoadingState {
+  _$StudentStateLoadingStateImpl();
+
+  @override
+  String toString() {
+    return 'StudentState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StudentStateLoadingStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Student> students) data,
+    required TResult Function(String message) error,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Student> students)? data,
+    TResult? Function(String message)? error,
+    TResult? Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Student> students)? data,
+    TResult Function(String message)? error,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentInitialState value) initial,
+    required TResult Function(_StudentStateData value) data,
+    required TResult Function(_StudentStateErrorState value) error,
+    required TResult Function(_StudentStateLoadingState value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentInitialState value)? initial,
+    TResult? Function(_StudentStateData value)? data,
+    TResult? Function(_StudentStateErrorState value)? error,
+    TResult? Function(_StudentStateLoadingState value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentInitialState value)? initial,
+    TResult Function(_StudentStateData value)? data,
+    TResult Function(_StudentStateErrorState value)? error,
+    TResult Function(_StudentStateLoadingState value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StudentStateLoadingState implements StudentState {
+  factory _StudentStateLoadingState() = _$StudentStateLoadingStateImpl;
 }
