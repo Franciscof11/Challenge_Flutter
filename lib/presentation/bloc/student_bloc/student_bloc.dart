@@ -26,7 +26,7 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
 
       emit(StudentState.data(students: students));
     } catch (e) {
-      emit(StudentState.error(message: 'Error when searching for contacts!'));
+      emit(StudentState.error(message: 'Erro ao buscar contatos!'));
     }
   }
 }
