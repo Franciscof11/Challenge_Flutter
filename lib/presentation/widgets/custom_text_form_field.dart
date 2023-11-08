@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 enum FormTypes {
   email,
   password,
+  birthDate,
+  other,
 }
 
 class CustomTextFormField extends StatefulWidget {
@@ -58,6 +60,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               return 'Campo obrigatório!';
             }
             return null;
+
+          case FormTypes.birthDate:
+            return null;
+          case FormTypes.other:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            return null;
         }
       },
       cursorColor: mainBlue,
@@ -76,17 +86,22 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
-        suffixIcon: widget.isSecret
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    obscureText = !obscureText;
-                  });
-                },
-                icon:
-                    Icon(obscureText ? Icons.visibility : Icons.visibility_off),
+        suffixIcon: widget.type == FormTypes.birthDate
+            ? const Icon(
+                Icons.calendar_month_outlined,
+                size: 30,
               )
-            : null,
+            : widget.isSecret
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                    icon: Icon(
+                        obscureText ? Icons.visibility : Icons.visibility_off),
+                  )
+                : null,
 
         prefixIcon: widget.prefixIcon,
         //
