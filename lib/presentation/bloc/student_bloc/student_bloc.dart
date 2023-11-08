@@ -22,11 +22,11 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
     try {
       final students = await _repository.getAllStudents();
 
-      await Future.delayed(const Duration(seconds: 2));
-
+      await Future.delayed(const Duration(seconds: 1));
+      throw Exception();
       emit(StudentState.data(students: students));
     } catch (e) {
-      emit(StudentState.error(message: 'Erro ao buscar contatos!'));
+      emit(StudentState.error(message: 'Erro ao buscar estudantes!'));
     }
   }
 }
