@@ -108,14 +108,12 @@ class StudentListTile extends StatelessWidget {
                                   context.read<StudentBloc>().add(
                                         StudentEvent.delete(student: student),
                                       );
-                                  Navigator.of(context).pop();
-
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(SnackBar(
                                     content: Text(
-                                      'Aluno excluido com sucesso!',
+                                      'Aluno excluido com sucesso',
                                       style: GoogleFonts.rubik(
-                                        color: Colors.white,
+                                        color: mainBlue,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -123,6 +121,7 @@ class StudentListTile extends StatelessWidget {
                                     backgroundColor: const Color.fromARGB(
                                         255, 111, 255, 123),
                                   ));
+                                  Navigator.of(context).pop();
                                 },
                                 child: Text(
                                   'Excluir aluno',
