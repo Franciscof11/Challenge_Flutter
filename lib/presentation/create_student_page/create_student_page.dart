@@ -112,36 +112,10 @@ class CreateStudentPage extends StatelessWidget {
                           backgroundColor: mainBlue,
                           fixedSize: const Size(190, 55)),
                       onPressed: () {
-                        formKey.currentState?.validate();
-                        final newStudent = Student(
-                          academicRecord: int.tryParse(raController.text),
-                          name: nameController.text,
-                          birthdate: int.tryParse(birthDateController.text),
-                          cpf: int.tryParse(cpfDateController.text),
-                          email: emailController.text,
-                        );
-                        context.read<StudentBloc>().add(
-                              StudentEvent.create(student: newStudent),
-                            );
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                            'Aluno cadastrado com sucesso!',
-                            style: GoogleFonts.rubik(
-                              color: mainBlue,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          backgroundColor:
-                              const Color.fromARGB(255, 111, 255, 123),
-                        ));
-                        Navigator.pop(context);
-                        /*  Navigator.pushNamed(context, '/HomePage'); */
-                        raController.clear();
-                        nameController.clear();
-                        birthDateController.clear();
-                        cpfDateController.clear();
-                        emailController.clear();
+                        final formValid =
+                            formKey.currentState?.validate() ?? false;
+
+                        if (formValid) createStudent(context);
                       },
                       child: Row(
                         children: [
@@ -170,5 +144,37 @@ class CreateStudentPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  createStudent(BuildContext context) {
+    final newStudent = Student(
+      academicRecord: int.tryParse(raController.text),
+      name: nameController.text,
+      birthdate: int.tryParse(birthDateController.text),
+      cpf: int.tryParse(cpfDateController.text),
+      email: emailController.text,
+    );
+    context.read<StudentBloc>().add(
+          StudentEvent.create(student: newStudent),
+        );
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        'Aluno cadastrado com sucesso!',
+        style: GoogleFonts.rubik(
+          color: mainBlue,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      backgroundColor: const Color.fromARGB(255, 111, 255, 123),
+    ));
+    raController.clear();
+    nameController.clear();
+    birthDateController.clear();
+    cpfDateController.clear();
+    emailController.clear();
+
+    Navigator.pushNamed(context, '/HomePage');
   }
 }
