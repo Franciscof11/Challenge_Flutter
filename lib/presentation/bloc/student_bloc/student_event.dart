@@ -4,4 +4,5 @@ part of 'student_bloc.dart';
 class StudentEvent with _$StudentEvent {
   factory StudentEvent.getAllStudents() = _StudentEventGetAll;
   factory StudentEvent.delete({required Student student}) = _StudentEventDelete;
+  factory StudentEvent.create({required Student student}) = _StudentEventCreate;
 }

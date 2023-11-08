@@ -260,7 +260,9 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: mainBlue,
         elevation: 0,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/CreateStudentPage');
+        },
       ),
     );
   }

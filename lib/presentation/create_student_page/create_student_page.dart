@@ -1,8 +1,11 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/config/form_masks.dart';
+import 'package:challenge_flutter/domain/student_model.dart';
+import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:challenge_flutter/presentation/widgets/custom_text_form_field.dart';
 import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateStudentPage extends StatelessWidget {
@@ -110,6 +113,35 @@ class CreateStudentPage extends StatelessWidget {
                           fixedSize: const Size(190, 55)),
                       onPressed: () {
                         formKey.currentState?.validate();
+                        final newStudent = Student(
+                          academicRecord: int.tryParse(raController.text),
+                          name: nameController.text,
+                          birthdate: int.tryParse(birthDateController.text),
+                          cpf: int.tryParse(cpfDateController.text),
+                          email: emailController.text,
+                        );
+                        context.read<StudentBloc>().add(
+                              StudentEvent.create(student: newStudent),
+                            );
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                            'Aluno cadastrado com sucesso!',
+                            style: GoogleFonts.rubik(
+                              color: mainBlue,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          backgroundColor:
+                              const Color.fromARGB(255, 111, 255, 123),
+                        ));
+                        Navigator.pop(context);
+                        /*  Navigator.pushNamed(context, '/HomePage'); */
+                        raController.clear();
+                        nameController.clear();
+                        birthDateController.clear();
+                        cpfDateController.clear();
+                        emailController.clear();
                       },
                       child: Row(
                         children: [

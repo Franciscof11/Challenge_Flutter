@@ -28,7 +28,7 @@ class StudentListTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    student.name,
+                    student.name ?? '',
                     style: GoogleFonts.rubik(
                       color: mainGreen,
                       fontSize: 20,

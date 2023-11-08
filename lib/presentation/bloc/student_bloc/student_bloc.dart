@@ -14,6 +14,30 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
         super(StudentState.initial()) {
     on<_StudentEventGetAll>(_getAll);
     on<_StudentEventDelete>(_deleteStudent);
+    on<_StudentEventCreate>(_createStudent);
+  }
+
+  Future<void> _createStudent(
+    _StudentEventCreate event,
+    Emitter<StudentState> emit,
+  ) async {
+    try {
+      await _repository.createStudent(event.student);
+
+      final students = await _repository.getAllStudents();
+
+      emit(StudentState.data(students: students));
+    } catch (e) {
+      emit(StudentState.error(message: 'Erro ao cadastrar aluno!'));
+
+      emit(StudentState.loading());
+
+      final students = await _repository.getAllStudents();
+
+      await Future.delayed(const Duration(milliseconds: 350));
+
+      emit(StudentState.data(students: students));
+    }
   }
 
   Future<void> _getAll(

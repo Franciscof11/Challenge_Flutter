@@ -20,18 +20,21 @@ mixin _$StudentEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllStudents,
     required TResult Function(Student student) delete,
+    required TResult Function(Student student) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllStudents,
     TResult? Function(Student student)? delete,
+    TResult? Function(Student student)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllStudents,
     TResult Function(Student student)? delete,
+    TResult Function(Student student)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$StudentEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_StudentEventGetAll value) getAllStudents,
     required TResult Function(_StudentEventDelete value) delete,
+    required TResult Function(_StudentEventCreate value) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_StudentEventGetAll value)? getAllStudents,
     TResult? Function(_StudentEventDelete value)? delete,
+    TResult? Function(_StudentEventCreate value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_StudentEventGetAll value)? getAllStudents,
     TResult Function(_StudentEventDelete value)? delete,
+    TResult Function(_StudentEventCreate value)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllStudents,
     required TResult Function(Student student) delete,
+    required TResult Function(Student student) create,
   }) {
     return getAllStudents();
   }
@@ -123,6 +130,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllStudents,
     TResult? Function(Student student)? delete,
+    TResult? Function(Student student)? create,
   }) {
     return getAllStudents?.call();
   }
@@ -132,6 +140,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllStudents,
     TResult Function(Student student)? delete,
+    TResult Function(Student student)? create,
     required TResult orElse(),
   }) {
     if (getAllStudents != null) {
@@ -145,6 +154,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult map<TResult extends Object?>({
     required TResult Function(_StudentEventGetAll value) getAllStudents,
     required TResult Function(_StudentEventDelete value) delete,
+    required TResult Function(_StudentEventCreate value) create,
   }) {
     return getAllStudents(this);
   }
@@ -154,6 +164,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_StudentEventGetAll value)? getAllStudents,
     TResult? Function(_StudentEventDelete value)? delete,
+    TResult? Function(_StudentEventCreate value)? create,
   }) {
     return getAllStudents?.call(this);
   }
@@ -163,6 +174,7 @@ class _$StudentEventGetAllImpl implements _StudentEventGetAll {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_StudentEventGetAll value)? getAllStudents,
     TResult Function(_StudentEventDelete value)? delete,
+    TResult Function(_StudentEventCreate value)? create,
     required TResult orElse(),
   }) {
     if (getAllStudents != null) {
@@ -243,6 +255,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllStudents,
     required TResult Function(Student student) delete,
+    required TResult Function(Student student) create,
   }) {
     return delete(student);
   }
@@ -252,6 +265,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllStudents,
     TResult? Function(Student student)? delete,
+    TResult? Function(Student student)? create,
   }) {
     return delete?.call(student);
   }
@@ -261,6 +275,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllStudents,
     TResult Function(Student student)? delete,
+    TResult Function(Student student)? create,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -274,6 +289,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult map<TResult extends Object?>({
     required TResult Function(_StudentEventGetAll value) getAllStudents,
     required TResult Function(_StudentEventDelete value) delete,
+    required TResult Function(_StudentEventCreate value) create,
   }) {
     return delete(this);
   }
@@ -283,6 +299,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_StudentEventGetAll value)? getAllStudents,
     TResult? Function(_StudentEventDelete value)? delete,
+    TResult? Function(_StudentEventCreate value)? create,
   }) {
     return delete?.call(this);
   }
@@ -292,6 +309,7 @@ class _$StudentEventDeleteImpl implements _StudentEventDelete {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_StudentEventGetAll value)? getAllStudents,
     TResult Function(_StudentEventDelete value)? delete,
+    TResult Function(_StudentEventCreate value)? create,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -308,6 +326,147 @@ abstract class _StudentEventDelete implements StudentEvent {
   Student get student;
   @JsonKey(ignore: true)
   _$$StudentEventDeleteImplCopyWith<_$StudentEventDeleteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StudentEventCreateImplCopyWith<$Res> {
+  factory _$$StudentEventCreateImplCopyWith(_$StudentEventCreateImpl value,
+          $Res Function(_$StudentEventCreateImpl) then) =
+      __$$StudentEventCreateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Student student});
+}
+
+/// @nodoc
+class __$$StudentEventCreateImplCopyWithImpl<$Res>
+    extends _$StudentEventCopyWithImpl<$Res, _$StudentEventCreateImpl>
+    implements _$$StudentEventCreateImplCopyWith<$Res> {
+  __$$StudentEventCreateImplCopyWithImpl(_$StudentEventCreateImpl _value,
+      $Res Function(_$StudentEventCreateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? student = null,
+  }) {
+    return _then(_$StudentEventCreateImpl(
+      student: null == student
+          ? _value.student
+          : student // ignore: cast_nullable_to_non_nullable
+              as Student,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StudentEventCreateImpl implements _StudentEventCreate {
+  _$StudentEventCreateImpl({required this.student});
+
+  @override
+  final Student student;
+
+  @override
+  String toString() {
+    return 'StudentEvent.create(student: $student)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StudentEventCreateImpl &&
+            (identical(other.student, student) || other.student == student));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, student);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StudentEventCreateImplCopyWith<_$StudentEventCreateImpl> get copyWith =>
+      __$$StudentEventCreateImplCopyWithImpl<_$StudentEventCreateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllStudents,
+    required TResult Function(Student student) delete,
+    required TResult Function(Student student) create,
+  }) {
+    return create(student);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllStudents,
+    TResult? Function(Student student)? delete,
+    TResult? Function(Student student)? create,
+  }) {
+    return create?.call(student);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllStudents,
+    TResult Function(Student student)? delete,
+    TResult Function(Student student)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(student);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentEventGetAll value) getAllStudents,
+    required TResult Function(_StudentEventDelete value) delete,
+    required TResult Function(_StudentEventCreate value) create,
+  }) {
+    return create(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentEventGetAll value)? getAllStudents,
+    TResult? Function(_StudentEventDelete value)? delete,
+    TResult? Function(_StudentEventCreate value)? create,
+  }) {
+    return create?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentEventGetAll value)? getAllStudents,
+    TResult Function(_StudentEventDelete value)? delete,
+    TResult Function(_StudentEventCreate value)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StudentEventCreate implements StudentEvent {
+  factory _StudentEventCreate({required final Student student}) =
+      _$StudentEventCreateImpl;
+
+  Student get student;
+  @JsonKey(ignore: true)
+  _$$StudentEventCreateImplCopyWith<_$StudentEventCreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

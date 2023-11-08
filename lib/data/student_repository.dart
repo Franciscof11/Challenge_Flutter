@@ -15,4 +15,11 @@ class StudentRepository {
     return Dio().delete(
         'https://653c0826d5d6790f5ec7c664.mockapi.io/api/v1/student/${student.id}');
   }
+
+  Future<void> createStudent(Student student) {
+    return Dio().post(
+      'https://653c0826d5d6790f5ec7c664.mockapi.io/api/v1/student',
+      data: student.toMap(),
+    );
+  }
 }

@@ -14,5 +14,10 @@ final routes = {
         )..add(StudentEvent.getAllStudents()),
         child: const HomePage(),
       ),
-  '/CreateStudentPage': (context) => CreateStudentPage(),
+  '/CreateStudentPage': (context) => BlocProvider(
+        create: (context) => StudentBloc(
+          repository: context.read<StudentRepository>(),
+        ),
+        child: CreateStudentPage(),
+      ),
 };

@@ -29,7 +29,7 @@ class MainApp extends StatelessWidget {
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
           debugShowCheckedModeBanner: false,
-          initialRoute: '/CreateStudentPage',
+          initialRoute: '/HomePage',
           routes: routes,
         ),
       ),
