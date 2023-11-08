@@ -1,8 +1,10 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../domain/student_model.dart';
+import '../bloc/student_bloc/student_bloc.dart';
 
 class StudentListTile extends StatelessWidget {
   final Student student;
@@ -66,10 +68,66 @@ class StudentListTile extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 12),
-                    child: Icon(
-                      Icons.delete_outline_outlined,
-                      color: Colors.red[500],
-                      size: 28,
+                    child: GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              'Excluir Aluno',
+                              style: GoogleFonts.rubik(
+                                color: mainBlue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            content: Text(
+                              'Tem certeza que deseja excluir este aluno?',
+                              style: GoogleFonts.rubik(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text(
+                                  'Cancelar',
+                                  style: GoogleFonts.rubik(
+                                    color: mainBlue,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  context.read<StudentBloc>().add(
+                                        StudentEvent.delete(student: student),
+                                      );
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text(
+                                  'Excluir aluno',
+                                  style: GoogleFonts.rubik(
+                                    color: mainBlue,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.delete_outline_outlined,
+                        color: Colors.red[500],
+                        size: 28,
+                      ),
                     ),
                   ),
                 ],

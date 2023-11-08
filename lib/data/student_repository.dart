@@ -10,4 +10,9 @@ class StudentRepository {
         .map<Student>((student) => Student.fromMap(student))
         .toList();
   }
+
+  Future<void> deleteStudent(Student student) {
+    return Dio().delete(
+        'https://653c0826d5d6790f5ec7c664.mockapi.io/api/v1/student/${student.id}');
+  }
 }

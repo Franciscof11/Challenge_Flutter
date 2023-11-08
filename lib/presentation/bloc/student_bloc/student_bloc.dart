@@ -13,6 +13,7 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
       : _repository = repository,
         super(StudentState.initial()) {
     on<_StudentEventGetAll>(_getAll);
+    on<_StudentEventDelete>(_deleteStudent);
   }
 
   Future<void> _getAll(
@@ -24,11 +25,22 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
 
       final students = await _repository.getAllStudents();
 
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
 
       emit(StudentState.data(students: students));
     } catch (e) {
       emit(StudentState.error(message: 'Erro ao buscar estudantes!'));
+    }
+  }
+
+  Future<void> _deleteStudent(
+    _StudentEventDelete event,
+    Emitter<StudentState> emit,
+  ) async {
+    try {
+      await _repository.deleteStudent(event.student);
+    } catch (e) {
+      emit(StudentState.error(message: 'Erro ao excluir estudante!'));
     }
   }
 }
