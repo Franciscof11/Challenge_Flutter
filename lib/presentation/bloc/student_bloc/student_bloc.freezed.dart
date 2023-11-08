@@ -15,6 +15,156 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$StudentEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllStudents,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllStudents,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllStudents,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentEventGetAll value) getAllStudents,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentEventGetAll value)? getAllStudents,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentEventGetAll value)? getAllStudents,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StudentEventCopyWith<$Res> {
+  factory $StudentEventCopyWith(
+          StudentEvent value, $Res Function(StudentEvent) then) =
+      _$StudentEventCopyWithImpl<$Res, StudentEvent>;
+}
+
+/// @nodoc
+class _$StudentEventCopyWithImpl<$Res, $Val extends StudentEvent>
+    implements $StudentEventCopyWith<$Res> {
+  _$StudentEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$StudentEventGetAllImplCopyWith<$Res> {
+  factory _$$StudentEventGetAllImplCopyWith(_$StudentEventGetAllImpl value,
+          $Res Function(_$StudentEventGetAllImpl) then) =
+      __$$StudentEventGetAllImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StudentEventGetAllImplCopyWithImpl<$Res>
+    extends _$StudentEventCopyWithImpl<$Res, _$StudentEventGetAllImpl>
+    implements _$$StudentEventGetAllImplCopyWith<$Res> {
+  __$$StudentEventGetAllImplCopyWithImpl(_$StudentEventGetAllImpl _value,
+      $Res Function(_$StudentEventGetAllImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StudentEventGetAllImpl implements _StudentEventGetAll {
+  _$StudentEventGetAllImpl();
+
+  @override
+  String toString() {
+    return 'StudentEvent.getAllStudents()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StudentEventGetAllImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllStudents,
+  }) {
+    return getAllStudents();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllStudents,
+  }) {
+    return getAllStudents?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllStudents,
+    required TResult orElse(),
+  }) {
+    if (getAllStudents != null) {
+      return getAllStudents();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentEventGetAll value) getAllStudents,
+  }) {
+    return getAllStudents(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentEventGetAll value)? getAllStudents,
+  }) {
+    return getAllStudents?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentEventGetAll value)? getAllStudents,
+    required TResult orElse(),
+  }) {
+    if (getAllStudents != null) {
+      return getAllStudents(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StudentEventGetAll implements StudentEvent {
+  factory _StudentEventGetAll() = _$StudentEventGetAllImpl;
+}
+
+/// @nodoc
 mixin _$StudentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
