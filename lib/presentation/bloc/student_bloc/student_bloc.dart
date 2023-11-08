@@ -39,6 +39,8 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
     Emitter<StudentState> emit,
   ) async {
     try {
+      emit(StudentState.loading());
+
       await _repository.createStudent(event.student);
 
       final students = await _repository.getAllStudents();

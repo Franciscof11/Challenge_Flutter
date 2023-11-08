@@ -147,17 +147,22 @@ class CreateStudentPage extends StatelessWidget {
   }
 
   createStudent(BuildContext context) {
+    final formattedCpf = formatString(cpfDateController.text);
+    final formatedBirthDate = formatString(birthDateController.text);
     final newStudent = Student(
+      createdAt: DateTime.now().toString(),
       academicRecord: int.tryParse(raController.text),
       name: nameController.text,
-      birthdate: int.tryParse(birthDateController.text),
-      cpf: int.tryParse(cpfDateController.text),
+      birthdate: int.tryParse(formatedBirthDate),
+      cpf: int.tryParse(formattedCpf),
       email: emailController.text,
     );
     context.read<StudentBloc>().add(
           StudentEvent.create(student: newStudent),
         );
-
+    context.read<StudentBloc>().add(
+          StudentEvent.getAllStudents(),
+        );
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         'Aluno cadastrado com sucesso!',
@@ -176,5 +181,9 @@ class CreateStudentPage extends StatelessWidget {
     emailController.clear();
 
     Navigator.pushNamed(context, '/HomePage');
+  }
+
+  String formatString(String string) {
+    return string.replaceAll(RegExp(r'[^\d]'), '');
   }
 }
