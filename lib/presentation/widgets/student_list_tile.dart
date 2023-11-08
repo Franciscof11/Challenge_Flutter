@@ -1,10 +1,10 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
+import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../domain/student_model.dart';
-import '../bloc/student_bloc/student_bloc.dart';
 
 class StudentListTile extends StatelessWidget {
   final Student student;
@@ -72,7 +72,7 @@ class StudentListTile extends StatelessWidget {
                       onTap: () {
                         showDialog(
                           context: context,
-                          builder: (context) => AlertDialog(
+                          builder: (dialogContext) => AlertDialog(
                             title: Text(
                               'Excluir Aluno',
                               style: GoogleFonts.rubik(
@@ -109,6 +109,20 @@ class StudentListTile extends StatelessWidget {
                                         StudentEvent.delete(student: student),
                                       );
                                   Navigator.of(context).pop();
+
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      'Aluno excluido com sucesso!',
+                                      style: GoogleFonts.rubik(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 111, 255, 123),
+                                  ));
                                 },
                                 child: Text(
                                   'Excluir aluno',

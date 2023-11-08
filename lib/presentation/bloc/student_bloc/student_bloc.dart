@@ -25,11 +25,11 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
 
       final students = await _repository.getAllStudents();
 
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 350));
 
       emit(StudentState.data(students: students));
     } catch (e) {
-      emit(StudentState.error(message: 'Erro ao buscar estudantes!'));
+      emit(StudentState.error(message: 'Erro ao buscar alunos!'));
     }
   }
 
@@ -38,9 +38,25 @@ class StudentBloc extends Bloc<StudentEvent, StudentState> {
     Emitter<StudentState> emit,
   ) async {
     try {
+      emit(StudentState.loading());
+
+      await Future.delayed(const Duration(milliseconds: 350));
+
       await _repository.deleteStudent(event.student);
+
+      final students = await _repository.getAllStudents();
+
+      emit(StudentState.data(students: students));
     } catch (e) {
-      emit(StudentState.error(message: 'Erro ao excluir estudante!'));
+      emit(StudentState.error(message: 'Erro ao excluir aluno!'));
+
+      emit(StudentState.loading());
+
+      final students = await _repository.getAllStudents();
+
+      await Future.delayed(const Duration(milliseconds: 350));
+
+      emit(StudentState.data(students: students));
     }
   }
 }

@@ -29,8 +29,14 @@ class HomePage extends StatelessWidget {
           state.whenOrNull(
             error: (message) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content:
-                    Text(message, style: const TextStyle(color: Colors.white)),
+                content: Text(
+                  message,
+                  style: GoogleFonts.rubik(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 backgroundColor: Colors.red[400],
               ));
             },
