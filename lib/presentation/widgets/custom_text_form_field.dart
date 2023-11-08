@@ -1,5 +1,6 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 enum FormTypes {
@@ -15,6 +16,8 @@ class CustomTextFormField extends StatefulWidget {
   final bool isSecret;
   final TextEditingController controller;
   final FormTypes type;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? mask;
   const CustomTextFormField({
     super.key,
     required this.label,
@@ -22,6 +25,8 @@ class CustomTextFormField extends StatefulWidget {
     this.isSecret = false,
     required this.controller,
     required this.type,
+    this.mask,
+    this.keyboardType,
   });
 
   @override
@@ -40,6 +45,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.keyboardType,
+      inputFormatters: widget.mask,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       controller: widget.controller,
       obscureText: obscureText,

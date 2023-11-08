@@ -1,4 +1,5 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
+import 'package:challenge_flutter/config/form_masks.dart';
 import 'package:challenge_flutter/presentation/widgets/custom_text_form_field.dart';
 import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
@@ -60,17 +61,29 @@ class CreateStudentPage extends StatelessWidget {
                     label: 'Data de Nascimento',
                     controller: birthDateController,
                     type: FormTypes.birthDate,
+                    keyboardType: TextInputType.datetime,
+                    mask: [
+                      Masks().birthDateMask,
+                    ],
                   ),
                   const SizedBox(height: 25),
                   CustomTextFormField(
                     label: 'CPF*',
                     controller: cpfDateController,
                     type: FormTypes.other,
+                    keyboardType: TextInputType.number,
+                    mask: [
+                      Masks().cpfMask,
+                    ],
                   ),
                   const SizedBox(height: 25),
                   CustomTextFormField(
                     label: 'Registro Acadêmico*',
                     controller: raController,
+                    keyboardType: TextInputType.number,
+                    mask: [
+                      Masks().ra,
+                    ],
                     type: FormTypes.other,
                   ),
                   const SizedBox(height: 35),
