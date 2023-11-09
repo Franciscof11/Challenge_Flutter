@@ -1,16 +1,19 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/config/form_masks.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
-import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:challenge_flutter/presentation/widgets/custom_text_form_field.dart';
 import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateStudentPage extends StatelessWidget {
-  CreateStudentPage({super.key});
+class CreateStudentPage extends StatefulWidget {
+  const CreateStudentPage({super.key});
 
+  @override
+  State<CreateStudentPage> createState() => _CreateStudentPageState();
+}
+
+class _CreateStudentPageState extends State<CreateStudentPage> {
   final formKey = GlobalKey<FormState>();
 
   final nameController = TextEditingController();
@@ -22,6 +25,16 @@ class CreateStudentPage extends StatelessWidget {
   final raController = TextEditingController();
 
   final emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    birthDateController.dispose();
+    cpfDateController.dispose();
+    raController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +159,7 @@ class CreateStudentPage extends StatelessWidget {
     );
   }
 
-  createStudent(BuildContext context) {
+  createStudent(BuildContext context) async {
     final formattedCpf = formatString(cpfDateController.text);
     final formatedBirthDate = formatString(birthDateController.text);
     final newStudent = Student(
@@ -157,12 +170,10 @@ class CreateStudentPage extends StatelessWidget {
       cpf: int.tryParse(formattedCpf),
       email: emailController.text,
     );
-    context.read<StudentBloc>().add(
+/*     context.read<>().add(
           StudentEvent.create(student: newStudent),
-        );
-    context.read<StudentBloc>().add(
-          StudentEvent.getAllStudents(),
-        );
+        ); */
+
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         'Aluno cadastrado com sucesso!',
@@ -174,11 +185,6 @@ class CreateStudentPage extends StatelessWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 111, 255, 123),
     ));
-    raController.clear();
-    nameController.clear();
-    birthDateController.clear();
-    cpfDateController.clear();
-    emailController.clear();
 
     Navigator.pushNamed(context, '/HomePage');
   }

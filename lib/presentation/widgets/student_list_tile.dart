@@ -1,7 +1,5 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
-import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../domain/student_model.dart';
@@ -105,9 +103,9 @@ class StudentListTile extends StatelessWidget {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  context.read<StudentBloc>().add(
+                                  /*     context.read<StudentListBloc>().add(
                                         StudentEvent.delete(student: student),
-                                      );
+                                      ); */
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(SnackBar(
                                     content: Text(

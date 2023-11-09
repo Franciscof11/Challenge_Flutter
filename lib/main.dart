@@ -1,5 +1,4 @@
 import 'package:challenge_flutter/config/routes.dart';
-import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,16 +21,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (context) => StudentRepository(),
-      child: BlocProvider(
-        create: (context) =>
-            StudentBloc(repository: context.read<StudentRepository>()),
-        child: MaterialApp(
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
-          debugShowCheckedModeBanner: false,
-          initialRoute: '/HomePage',
-          routes: routes,
-        ),
+      child: MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/ListStudentsPage',
+        routes: routes,
       ),
     );
   }

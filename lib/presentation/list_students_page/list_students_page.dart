@@ -1,6 +1,6 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
-import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
+import 'package:challenge_flutter/presentation/list_students_page/bloc/student_list_bloc.dart';
 import 'package:challenge_flutter/presentation/widgets/loader.dart';
 import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/student_list_tile.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class ListStudentsPage extends StatelessWidget {
+  const ListStudentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: BlocListener<StudentBloc, StudentState>(
+      body: BlocListener<StudentListBloc, StudentListState>(
         listenWhen: (previous, current) {
           return current.maybeWhen(
             error: (message) => true,
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 15),
-              Loader<StudentBloc, StudentState>(
+              Loader<StudentListBloc, StudentListState>(
                 selector: (state) {
                   return state.maybeWhen(
                     loading: () => true,
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-              BlocSelector<StudentBloc, StudentState, List<Student>>(
+              BlocSelector<StudentListBloc, StudentListState, List<Student>>(
                 selector: (state) {
                   return state.maybeWhen(
                     data: (students) => students,
@@ -96,8 +96,8 @@ class HomePage extends StatelessWidget {
                     child: RefreshIndicator(
                       onRefresh: () async {
                         context
-                            .read<StudentBloc>()
-                            .add(StudentEvent.getAllStudents());
+                            .read<StudentListBloc>()
+                            .add(const StudentListEvent.getAllStudents());
                       },
                       child: MediaQuery.removePadding(
                         context: context,
@@ -271,7 +271,7 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: mainBlue,
         elevation: 0,
-        onPressed: () {
+        onPressed: () async {
           Navigator.pushNamed(context, '/CreateStudentPage');
         },
       ),
