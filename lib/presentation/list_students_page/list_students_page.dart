@@ -277,9 +277,11 @@ class ListStudentsPage extends StatelessWidget {
         elevation: 0,
         onPressed: () async {
           await Navigator.pushNamed(context, '/CreateStudentPage');
-          context
-              .read<StudentListBloc>()
-              .add(const StudentListEvent.getAllStudents());
+          if (context.mounted) {
+            context
+                .read<StudentListBloc>()
+                .add(const StudentListEvent.getAllStudents());
+          }
         },
       ),
     );
