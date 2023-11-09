@@ -44,63 +44,65 @@ class HomePage extends StatelessWidget {
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const SizedBox(height: 50),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Lista de Alunos',
-                      style: GoogleFonts.rubik(
-                        color: mainBlue,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w500,
-                      ),
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Lista de Alunos',
+                    style: GoogleFonts.rubik(
+                      color: mainBlue,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(2.5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          border: Border.all(
-                            color: mainBlue,
-                            width: 2,
-                          )),
-                      child: const Icon(
-                        Icons.search,
-                        color: mainBlue,
-                        size: 32,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Loader<StudentBloc, StudentState>(
-                  selector: (state) {
-                    return state.maybeWhen(
-                      loading: () => true,
-                      orElse: () => false,
-                    );
-                  },
-                ),
-                BlocSelector<StudentBloc, StudentState, List<Student>>(
-                  selector: (state) {
-                    return state.maybeWhen(
-                      data: (students) => students,
-                      orElse: () => [],
-                    );
-                  },
-                  builder: (context, students) => SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.8,
-                    child: AnimationLimiter(
-                      child: MediaQuery.removePadding(
-                        context: context,
-                        removeTop: true,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(2.5),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(13),
+                        border: Border.all(
+                          color: mainBlue,
+                          width: 2,
+                        )),
+                    child: const Icon(
+                      Icons.search,
+                      color: mainBlue,
+                      size: 32,
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 15),
+              Loader<StudentBloc, StudentState>(
+                selector: (state) {
+                  return state.maybeWhen(
+                    loading: () => true,
+                    orElse: () => false,
+                  );
+                },
+              ),
+              BlocSelector<StudentBloc, StudentState, List<Student>>(
+                selector: (state) {
+                  return state.maybeWhen(
+                    data: (students) => students,
+                    orElse: () => [],
+                  );
+                },
+                builder: (context, students) => Expanded(
+                  child: RefreshIndicator(
+                    onRefresh: () async {
+                      context
+                          .read<StudentBloc>()
+                          .add(StudentEvent.getAllStudents());
+                    },
+                    child: MediaQuery.removePadding(
+                      context: context,
+                      removeTop: true,
+                      child: AnimationLimiter(
                         child: ListView.builder(
-                          physics: const BouncingScrollPhysics(),
+                          physics: const AlwaysScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: students.length,
                           itemBuilder: (context, index) {
@@ -131,8 +133,8 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -151,7 +153,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 60),
               Row(
                 children: [
                   const Icon(
@@ -210,28 +212,28 @@ class HomePage extends StatelessWidget {
       key: drawerKey,
       //
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          if (value == 0) drawerKey.currentState?.openDrawer();
+        },
         backgroundColor: Colors.grey[200],
         elevation: 0,
         iconSize: 25,
         fixedColor: mainBlue,
         unselectedItemColor: mainBlue,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: 'Menu',
-            icon: GestureDetector(
-              onTap: () => drawerKey.currentState?.openDrawer(),
-              child: const Icon(
-                Icons.menu,
-              ),
+            icon: Icon(
+              Icons.menu,
             ),
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: 'Notificações',
             icon: Icon(
               Icons.notifications_outlined,
             ),
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: 'Perfil',
             icon: Icon(
               Icons.account_circle_outlined,
