@@ -119,9 +119,10 @@ class StudentListTile extends StatelessWidget {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  /*     context.read<StudentListBloc>().add(
-                                        StudentEvent.delete(student: student),
-                                      ); */
+                                  context.read<StudentListBloc>().add(
+                                        StudentListEvent.deleteStudent(
+                                            student: student),
+                                      );
 
                                   Navigator.of(context).pop();
                                 },

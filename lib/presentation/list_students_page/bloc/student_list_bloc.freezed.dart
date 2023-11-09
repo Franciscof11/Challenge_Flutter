@@ -19,32 +19,38 @@ mixin _$StudentListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllStudents,
+    required TResult Function(Student student) deleteStudent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllStudents,
+    TResult? Function(Student student)? deleteStudent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllStudents,
+    TResult Function(Student student)? deleteStudent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_DeleteStudent value) deleteStudent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_DeleteStudent value)? deleteStudent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_DeleteStudent value)? deleteStudent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllStudents,
+    required TResult Function(Student student) deleteStudent,
   }) {
     return getAllStudents();
   }
@@ -115,6 +122,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllStudents,
+    TResult? Function(Student student)? deleteStudent,
   }) {
     return getAllStudents?.call();
   }
@@ -123,6 +131,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllStudents,
+    TResult Function(Student student)? deleteStudent,
     required TResult orElse(),
   }) {
     if (getAllStudents != null) {
@@ -135,6 +144,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_DeleteStudent value) deleteStudent,
   }) {
     return getAllStudents(this);
   }
@@ -143,6 +153,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_DeleteStudent value)? deleteStudent,
   }) {
     return getAllStudents?.call(this);
   }
@@ -151,6 +162,7 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_DeleteStudent value)? deleteStudent,
     required TResult orElse(),
   }) {
     if (getAllStudents != null) {
@@ -162,6 +174,140 @@ class _$GetAllStudentsImpl implements _GetAllStudents {
 
 abstract class _GetAllStudents implements StudentListEvent {
   const factory _GetAllStudents() = _$GetAllStudentsImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteStudentImplCopyWith<$Res> {
+  factory _$$DeleteStudentImplCopyWith(
+          _$DeleteStudentImpl value, $Res Function(_$DeleteStudentImpl) then) =
+      __$$DeleteStudentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Student student});
+}
+
+/// @nodoc
+class __$$DeleteStudentImplCopyWithImpl<$Res>
+    extends _$StudentListEventCopyWithImpl<$Res, _$DeleteStudentImpl>
+    implements _$$DeleteStudentImplCopyWith<$Res> {
+  __$$DeleteStudentImplCopyWithImpl(
+      _$DeleteStudentImpl _value, $Res Function(_$DeleteStudentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? student = null,
+  }) {
+    return _then(_$DeleteStudentImpl(
+      student: null == student
+          ? _value.student
+          : student // ignore: cast_nullable_to_non_nullable
+              as Student,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteStudentImpl implements _DeleteStudent {
+  const _$DeleteStudentImpl({required this.student});
+
+  @override
+  final Student student;
+
+  @override
+  String toString() {
+    return 'StudentListEvent.deleteStudent(student: $student)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteStudentImpl &&
+            (identical(other.student, student) || other.student == student));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, student);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteStudentImplCopyWith<_$DeleteStudentImpl> get copyWith =>
+      __$$DeleteStudentImplCopyWithImpl<_$DeleteStudentImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllStudents,
+    required TResult Function(Student student) deleteStudent,
+  }) {
+    return deleteStudent(student);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllStudents,
+    TResult? Function(Student student)? deleteStudent,
+  }) {
+    return deleteStudent?.call(student);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllStudents,
+    TResult Function(Student student)? deleteStudent,
+    required TResult orElse(),
+  }) {
+    if (deleteStudent != null) {
+      return deleteStudent(student);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_DeleteStudent value) deleteStudent,
+  }) {
+    return deleteStudent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_DeleteStudent value)? deleteStudent,
+  }) {
+    return deleteStudent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_DeleteStudent value)? deleteStudent,
+    required TResult orElse(),
+  }) {
+    if (deleteStudent != null) {
+      return deleteStudent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteStudent implements StudentListEvent {
+  const factory _DeleteStudent({required final Student student}) =
+      _$DeleteStudentImpl;
+
+  Student get student;
+  @JsonKey(ignore: true)
+  _$$DeleteStudentImplCopyWith<_$DeleteStudentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
