@@ -2,6 +2,7 @@ import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
 import 'package:challenge_flutter/presentation/bloc/student_bloc/student_bloc.dart';
 import 'package:challenge_flutter/presentation/widgets/loader.dart';
+import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -90,44 +91,52 @@ class HomePage extends StatelessWidget {
                     orElse: () => [],
                   );
                 },
-                builder: (context, students) => Expanded(
-                  child: RefreshIndicator(
-                    onRefresh: () async {
-                      context
-                          .read<StudentBloc>()
-                          .add(StudentEvent.getAllStudents());
-                    },
-                    child: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      child: AnimationLimiter(
-                        child: ListView.builder(
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: students.length,
-                          itemBuilder: (context, index) {
-                            return AnimationConfiguration.staggeredList(
-                              position: index,
-                              delay: const Duration(milliseconds: 100),
-                              child: SlideAnimation(
-                                duration: const Duration(milliseconds: 2500),
-                                curve: Curves.fastLinearToSlowEaseIn,
-                                horizontalOffset: 30,
-                                verticalOffset: 300.0,
-                                child: FlipAnimation(
-                                  duration: const Duration(milliseconds: 3000),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                  flipAxis: FlipAxis.y,
-                                  child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 7),
-                                      child: StudentListTile(
-                                        student: students[index],
-                                      )),
-                                ),
-                              ),
-                            );
-                          },
+                builder: (context, students) => RemoveGlowEffect(
+                  child: Expanded(
+                    child: RefreshIndicator(
+                      onRefresh: () async {
+                        context
+                            .read<StudentBloc>()
+                            .add(StudentEvent.getAllStudents());
+                      },
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height,
+                          child: AnimationLimiter(
+                            child: ListView.builder(
+                              physics: const BouncingScrollPhysics(
+                                  parent: AlwaysScrollableScrollPhysics()),
+                              shrinkWrap: true,
+                              itemCount: students.length,
+                              itemBuilder: (context, index) {
+                                return AnimationConfiguration.staggeredList(
+                                  position: index,
+                                  delay: const Duration(milliseconds: 100),
+                                  child: SlideAnimation(
+                                    duration:
+                                        const Duration(milliseconds: 2500),
+                                    curve: Curves.fastLinearToSlowEaseIn,
+                                    horizontalOffset: 30,
+                                    verticalOffset: 300.0,
+                                    child: FlipAnimation(
+                                      duration:
+                                          const Duration(milliseconds: 3000),
+                                      curve: Curves.fastLinearToSlowEaseIn,
+                                      flipAxis: FlipAxis.y,
+                                      child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 7),
+                                          child: StudentListTile(
+                                            student: students[index],
+                                          )),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                         ),
                       ),
                     ),
