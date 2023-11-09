@@ -1,5 +1,7 @@
 import 'package:challenge_flutter/config/constant_colors.dart';
+import 'package:challenge_flutter/presentation/list_students_page/bloc/student_list_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../domain/student_model.dart';
@@ -33,12 +35,26 @@ class StudentListTile extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 12),
-                    child: Icon(
-                      Icons.edit_outlined,
-                      color: mainBlue,
-                      size: 28,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 12),
+                    child: GestureDetector(
+                      onTap: () async {
+                        await Navigator.pushNamed(
+                          context,
+                          '/EditStudentPage',
+                          arguments: student,
+                        );
+                        if (context.mounted) {
+                          context
+                              .read<StudentListBloc>()
+                              .add(const StudentListEvent.getAllStudents());
+                        }
+                      },
+                      child: const Icon(
+                        Icons.edit_outlined,
+                        color: mainBlue,
+                        size: 28,
+                      ),
                     ),
                   ),
                 ],
@@ -106,19 +122,7 @@ class StudentListTile extends StatelessWidget {
                                   /*     context.read<StudentListBloc>().add(
                                         StudentEvent.delete(student: student),
                                       ); */
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(SnackBar(
-                                    content: Text(
-                                      'Aluno excluido com sucesso',
-                                      style: GoogleFonts.rubik(
-                                        color: mainBlue,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    backgroundColor: const Color.fromARGB(
-                                        255, 111, 255, 123),
-                                  ));
+
                                   Navigator.of(context).pop();
                                 },
                                 child: Text(

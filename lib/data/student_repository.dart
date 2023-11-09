@@ -22,4 +22,11 @@ class StudentRepository {
       data: student.toMap(),
     );
   }
+
+  Future<void> updateStudent(Student student) {
+    return Dio().put(
+      'https://653c0826d5d6790f5ec7c664.mockapi.io/api/v1/student/${student.id}',
+      data: student.toMap(),
+    );
+  }
 }

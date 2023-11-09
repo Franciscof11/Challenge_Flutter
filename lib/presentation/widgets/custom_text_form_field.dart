@@ -18,6 +18,7 @@ class CustomTextFormField extends StatefulWidget {
   final FormTypes type;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? mask;
+  final bool? disable;
   const CustomTextFormField({
     super.key,
     required this.label,
@@ -27,6 +28,7 @@ class CustomTextFormField extends StatefulWidget {
     required this.type,
     this.mask,
     this.keyboardType,
+    this.disable,
   });
 
   @override
@@ -45,6 +47,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: widget.disable == true ? false : true,
       keyboardType: widget.keyboardType,
       inputFormatters: widget.mask,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
@@ -133,6 +136,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderSide: const BorderSide(
             color: mainBlue,
             width: 2,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: mainBlue,
+            width: 0.5,
           ),
         ),
         errorBorder: OutlineInputBorder(
