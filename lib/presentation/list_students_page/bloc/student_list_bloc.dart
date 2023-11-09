@@ -28,7 +28,7 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
 
       final students = await _repository.getAllStudents();
 
-      await Future.delayed(const Duration(milliseconds: 350));
+      await Future.delayed(const Duration(seconds: 1));
 
       emit(StudentListState.data(students: students));
     } catch (e) {

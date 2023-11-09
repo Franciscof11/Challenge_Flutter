@@ -46,6 +46,7 @@ class ListStudentsPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
               Row(
@@ -76,13 +77,16 @@ class ListStudentsPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 15),
-              Loader<StudentListBloc, StudentListState>(
-                selector: (state) {
-                  return state.maybeWhen(
-                    loading: () => true,
-                    orElse: () => false,
-                  );
-                },
+              Center(
+                heightFactor: 7,
+                child: Loader<StudentListBloc, StudentListState>(
+                  selector: (state) {
+                    return state.maybeWhen(
+                      loading: () => true,
+                      orElse: () => false,
+                    );
+                  },
+                ),
               ),
               BlocSelector<StudentListBloc, StudentListState, List<Student>>(
                 selector: (state) {
@@ -272,7 +276,10 @@ class ListStudentsPage extends StatelessWidget {
         backgroundColor: mainBlue,
         elevation: 0,
         onPressed: () async {
-          Navigator.pushNamed(context, '/CreateStudentPage');
+          await Navigator.pushNamed(context, '/CreateStudentPage');
+          context
+              .read<StudentListBloc>()
+              .add(const StudentListEvent.getAllStudents());
         },
       ),
     );

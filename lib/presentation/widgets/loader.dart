@@ -14,8 +14,15 @@ class Loader<B extends StateStreamable<S>, S> extends StatelessWidget {
       selector: selector,
       builder: (context, loading) => Visibility(
           visible: loading,
-          child: const CircularProgressIndicator(
-            color: mainGreen,
+          child: const Column(
+            children: [
+              SizedBox(height: 30),
+              Center(
+                child: CircularProgressIndicator(
+                  color: mainGreen,
+                ),
+              ),
+            ],
           )),
     );
   }
