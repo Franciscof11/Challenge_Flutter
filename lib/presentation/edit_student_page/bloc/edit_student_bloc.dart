@@ -26,7 +26,7 @@ class EditStudentBloc extends Bloc<EditStudentEvent, EditStudentState> {
     try {
       emit(const EditStudentState.loading());
 
-      await Future.delayed(const Duration(milliseconds: 400));
+      await Future.delayed(const Duration(milliseconds: 500));
 
       await _repository.updateStudent(event.student);
 
@@ -34,7 +34,7 @@ class EditStudentBloc extends Bloc<EditStudentEvent, EditStudentState> {
         const EditStudentState.sucess(message: 'Aluno editado com sucesso!'),
       );
     } catch (e) {
-      const EditStudentState.error(message: 'Erro ao editar aluno!');
+      emit(const EditStudentState.error(message: 'Erro ao editar aluno!'));
     }
   }
 }
