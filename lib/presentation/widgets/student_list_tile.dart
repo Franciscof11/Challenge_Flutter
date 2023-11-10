@@ -27,16 +27,19 @@ class StudentListTile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    student.name ?? '',
-                    style: GoogleFonts.rubik(
-                      color: mainGreen,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
+                  Expanded(
+                    child: Text(
+                      student.name ?? '',
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.rubik(
+                        color: mainGreen,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 12),
+                    padding: const EdgeInsets.only(right: 5),
                     child: GestureDetector(
                       onTap: () async {
                         await Navigator.pushNamed(
@@ -60,28 +63,45 @@ class StudentListTile extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 14),
-              Text(
-                'CPF: ${student.cpf}',
-                style: GoogleFonts.rubik(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              const SizedBox(height: 6),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  const Icon(
+                    Icons.account_circle_outlined,
+                    color: mainBlue,
+                  ),
+                  const SizedBox(width: 6),
                   Text(
-                    'E-mail: ${student.email}',
+                    'CPF: ${student.cpf}',
                     style: GoogleFonts.rubik(
                       color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(
+                    Icons.email_outlined,
+                    color: mainBlue,
+                  ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      '${student.email}',
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.rubik(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 12),
+                    padding: const EdgeInsets.only(right: 5),
                     child: GestureDetector(
                       onTap: () {
                         showDialog(
