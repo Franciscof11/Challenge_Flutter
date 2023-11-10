@@ -112,13 +112,26 @@ class _EditStudentPageState extends State<EditStudentPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 50),
-                    Text(
-                      'Editar Aluno',
-                      style: GoogleFonts.rubik(
-                        color: mainBlue,
-                        fontSize: 32,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(
+                            Icons.arrow_back_ios,
+                            color: mainBlue,
+                            size: 28,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          'Editar Aluno',
+                          style: GoogleFonts.rubik(
+                            color: mainBlue,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 25),
                     Text(
