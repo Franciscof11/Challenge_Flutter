@@ -95,13 +95,29 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 50),
-                    Text(
-                      'Cadastrar Aluno',
-                      style: GoogleFonts.rubik(
-                        color: mainBlue,
-                        fontSize: 32,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(
+                            Icons.arrow_back_ios,
+                            color: mainBlue,
+                            size: 28,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Cadastrar Aluno',
+                            style: GoogleFonts.rubik(
+                              color: mainBlue,
+                              fontSize: 32,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 25),
                     Text(
@@ -122,7 +138,7 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                     CustomTextFormField(
                       label: 'Data de Nascimento',
                       controller: birthDateController,
-                      type: FormTypes.birthDate,
+                      type: FormTypes.other,
                       keyboardType: TextInputType.datetime,
                       mask: [
                         Masks().birthDateMask,
