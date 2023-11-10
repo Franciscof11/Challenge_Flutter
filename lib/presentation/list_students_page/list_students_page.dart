@@ -30,41 +30,31 @@ class ListStudentsPage extends StatelessWidget {
           );
         },
         listener: (context, state) {
-          state.whenOrNull(
-            empty: (students) {
-              showToast(
-                message: 'Nenhum Aluno encontrado!',
-                color: Colors.red[400]!,
-                context: context,
-              );
-            },
-            sucessDelete: (message) {
-              showToast(
-                message: message,
-                color: const Color.fromARGB(255, 111, 255, 123),
-                context: context,
-              );
-            },
-            error: (message) {
-              showToast(
-                message: message,
-                color: Colors.red[400]!,
-                context: context,
-              );
-
-              /*  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(
-                  message,
-                  style: GoogleFonts.rubik(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
+          state.whenOrNull(empty: (students) {
+            showToast(
+              message: 'Nenhum Aluno encontrado!',
+              color: Colors.red[400]!,
+              context: context,
+            );
+          }, sucessDelete: (message) {
+            showToast(
+              message: message,
+              color: const Color.fromARGB(255, 111, 255, 123),
+              context: context,
+            );
+          }, error: (message) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+                message,
+                style: GoogleFonts.rubik(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                 ),
-                backgroundColor: Colors.red[400],
-              )); */
-            },
-          );
+              ),
+              backgroundColor: Colors.red[400],
+            ));
+          });
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),

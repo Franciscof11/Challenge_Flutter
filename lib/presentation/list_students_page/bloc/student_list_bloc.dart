@@ -38,7 +38,6 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
       } else {
         emit(const StudentListState.empty(students: <Student>[]));
       }
-/*       throw Exception(); */
     } catch (e) {
       log('Erro ao buscar alunos -> $e', error: e);
       emit(const StudentListState.error(message: 'Erro ao buscar alunos!'));
