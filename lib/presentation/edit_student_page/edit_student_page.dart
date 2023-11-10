@@ -2,7 +2,6 @@ import 'package:challenge_flutter/config/constant_colors.dart';
 import 'package:challenge_flutter/config/form_masks.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
 import 'package:challenge_flutter/presentation/widgets/custom_text_form_field.dart';
-import 'package:challenge_flutter/presentation/widgets/loader.dart';
 import 'package:challenge_flutter/presentation/widgets/remove_glow_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,6 +62,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
       body: BlocListener<EditStudentBloc, EditStudentState>(
         listenWhen: (previous, current) {
           return current.maybeWhen(
+            loading: () => true,
             sucess: (message) => true,
             error: (message) => true,
             orElse: () => false,
@@ -70,8 +70,14 @@ class _EditStudentPageState extends State<EditStudentPage> {
         },
         listener: (context, state) {
           state.whenOrNull(
+            loading: () => showDialog(
+              context: context,
+              builder: (context) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
             sucess: (message) {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/ListStudentsPage');
               showToast(
                 message: message,
                 color: const Color.fromARGB(255, 111, 255, 123),
@@ -179,15 +185,6 @@ class _EditStudentPageState extends State<EditStudentPage> {
                       label: 'Email*',
                       controller: emailController,
                       type: FormTypes.email,
-                    ),
-                    const SizedBox(height: 0),
-                    Loader<EditStudentBloc, EditStudentState>(
-                      selector: (state) {
-                        return state.maybeWhen(
-                          loading: () => true,
-                          orElse: () => false,
-                        );
-                      },
                     ),
                     const SizedBox(height: 50),
                     Align(
