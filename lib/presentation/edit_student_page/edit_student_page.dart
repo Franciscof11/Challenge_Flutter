@@ -102,7 +102,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 35),
+                    const SizedBox(height: 40),
                     Row(
                       children: [
                         GestureDetector(

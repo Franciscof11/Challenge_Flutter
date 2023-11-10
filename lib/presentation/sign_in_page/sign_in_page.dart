@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  const SizedBox(height: 120),
+                  const SizedBox(height: 60),
                   //
                   Image.asset('assets/icon.png'),
                   //
@@ -61,7 +61,12 @@ class SignInPage extends StatelessWidget {
                   const SizedBox(height: 50),
                   ElevatedButton(
                     onPressed: () async {
-                      formKey.currentState?.validate();
+                      final formValid =
+                          formKey.currentState?.validate() ?? false;
+
+                      if (formValid) {
+                        Navigator.pushNamed(context, '/ListStudentsPage');
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 80),
@@ -79,58 +84,6 @@ class SignInPage extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: widthDevice <= 380 ? 80 : 130,
-                        child: Divider(
-                          color: Colors.grey[600],
-                          thickness: 0.5,
-                        ),
-                      ),
-                      Text(
-                        "Ou",
-                        style: GoogleFonts.rubik(
-                          color: Colors.grey[600],
-                          fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      SizedBox(
-                        width: widthDevice <= 380 ? 80 : 130,
-                        child: Divider(
-                          color: Colors.grey[600],
-                          thickness: 0.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: () {
-                      formKey.currentState?.validate();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 80),
-                      backgroundColor: Colors.white,
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                          side: const BorderSide(
-                            color: mainBlue,
-                            width: 2,
-                          )),
-                    ),
-                    child: Text(
-                      'Cadastrar',
-                      style: GoogleFonts.rubik(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: mainBlue,
-                      ),
-                    ),
-                  ),
                   const SizedBox(height: 40),
                 ],
               ),

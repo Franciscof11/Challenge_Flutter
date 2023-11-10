@@ -60,37 +60,19 @@ class ListStudentsPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 35),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Lista de Alunos',
-                    style: GoogleFonts.rubik(
-                      color: mainBlue,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
-                    ),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(
+                  'Alunos',
+                  style: GoogleFonts.rubik(
+                    color: mainBlue,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(2.5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          border: Border.all(
-                            color: mainBlue,
-                            width: 2,
-                          )),
-                      child: const Icon(
-                        Icons.search,
-                        color: mainBlue,
-                        size: 32,
-                      ),
-                    ),
-                  )
-                ],
+                ),
               ),
               const SizedBox(height: 15),
               Center(

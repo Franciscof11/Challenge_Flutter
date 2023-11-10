@@ -14,13 +14,16 @@ class StudentListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Material(
-        elevation: 8,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              stops: [0.02, 0.02], colors: [mainBlue, Colors.white]),
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
