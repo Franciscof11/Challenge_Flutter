@@ -9,6 +9,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/student_list_tile.dart';
+import '../widgets/toast.dart';
 
 class ListStudentsPage extends StatelessWidget {
   const ListStudentsPage({super.key});
@@ -29,7 +30,12 @@ class ListStudentsPage extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             error: (message) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              showToast(
+                message: message,
+                color: Colors.red[400]!,
+                context: context,
+              );
+/*               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(
                   message,
                   style: GoogleFonts.rubik(
@@ -39,7 +45,7 @@ class ListStudentsPage extends StatelessWidget {
                   ),
                 ),
                 backgroundColor: Colors.red[400],
-              ));
+              )); */
             },
           );
         },
@@ -60,18 +66,21 @@ class ListStudentsPage extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(2.5),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(13),
-                        border: Border.all(
-                          color: mainBlue,
-                          width: 2,
-                        )),
-                    child: const Icon(
-                      Icons.search,
-                      color: mainBlue,
-                      size: 32,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(2.5),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          border: Border.all(
+                            color: mainBlue,
+                            width: 2,
+                          )),
+                      child: const Icon(
+                        Icons.search,
+                        color: mainBlue,
+                        size: 32,
+                      ),
                     ),
                   )
                 ],

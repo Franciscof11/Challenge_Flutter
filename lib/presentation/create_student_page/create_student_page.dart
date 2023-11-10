@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/toast.dart';
+
 class CreateStudentPage extends StatefulWidget {
   const CreateStudentPage({super.key});
 
@@ -54,33 +56,17 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
           state.whenOrNull(
             sucess: (message) {
               Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    message,
-                    style: GoogleFonts.rubik(
-                      color: mainBlue,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  backgroundColor: const Color.fromARGB(255, 111, 255, 123),
-                ),
+              showToast(
+                message: message,
+                color: const Color.fromARGB(255, 111, 255, 123),
+                context: context,
               );
             },
             error: (message) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    message,
-                    style: GoogleFonts.rubik(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  backgroundColor: Colors.red[400],
-                ),
+              showToast(
+                message: message,
+                color: Colors.red[400]!,
+                context: context,
               );
             },
           );
