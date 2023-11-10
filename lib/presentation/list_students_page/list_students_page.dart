@@ -175,12 +175,16 @@ class ListStudentsPage extends StatelessWidget {
                     size: 30,
                   ),
                   const SizedBox(width: 10),
-                  Text(
-                    'Página Inicial',
-                    style: GoogleFonts.rubik(
-                      color: mainBlue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    onTap: () =>
+                        Navigator.pushNamed(context, '/ListStudentsPage'),
+                    child: Text(
+                      'Página Inicial',
+                      style: GoogleFonts.rubik(
+                        color: mainBlue,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ],
@@ -201,12 +205,16 @@ class ListStudentsPage extends StatelessWidget {
                     size: 30,
                   ),
                   const SizedBox(width: 10),
-                  Text(
-                    'Cadastrar Aluno',
-                    style: GoogleFonts.rubik(
-                      color: mainBlue,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    onTap: () =>
+                        Navigator.pushNamed(context, '/CreateStudentPage'),
+                    child: Text(
+                      'Cadastrar Aluno',
+                      style: GoogleFonts.rubik(
+                        color: mainBlue,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ],
