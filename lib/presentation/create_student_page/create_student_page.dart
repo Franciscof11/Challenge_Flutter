@@ -86,7 +86,7 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 35),
                     Row(
                       children: [
                         GestureDetector(

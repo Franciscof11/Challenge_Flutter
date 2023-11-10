@@ -61,7 +61,7 @@ class ListStudentsPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 35),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -94,7 +94,7 @@ class ListStudentsPage extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               Center(
-                heightFactor: 7,
+                heightFactor: 14,
                 child: Loader<StudentListBloc, StudentListState>(
                   selector: (state) {
                     return state.maybeWhen(
