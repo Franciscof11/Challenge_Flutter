@@ -80,12 +80,44 @@ class AuthPage extends StatelessWidget {
                     const SizedBox(height: 10),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        "Esqueceu a senha?",
-                        style: GoogleFonts.rubik(
-                          color: Colors.grey[700],
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                      child: GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (dialogContext) => AlertDialog(
+                              title: Text(
+                                'Funcionalidade em desenvolvimento!',
+                                style: GoogleFonts.rubik(
+                                  color: mainBlue,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text(
+                                    'Ok',
+                                    style: GoogleFonts.rubik(
+                                      color: mainBlue,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Esqueceu a senha?",
+                          style: GoogleFonts.rubik(
+                            color: Colors.grey[700],
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
