@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
@@ -25,14 +26,21 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
     Emitter<StudentListState> emit,
   ) async {
     try {
+      void sortListByDate(List list) {
+        list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      }
+
       emit(const StudentListState.loading());
 
       final students = await _repository.getAllStudents();
+
+      sortListByDate(students);
 
       await Future.delayed(const Duration(seconds: 1));
 
       emit(StudentListState.data(students: students));
     } catch (e) {
+      log('Erro ao buscar alunos -> $e', error: e);
       emit(const StudentListState.error(message: 'Erro ao buscar alunos!'));
     }
   }
