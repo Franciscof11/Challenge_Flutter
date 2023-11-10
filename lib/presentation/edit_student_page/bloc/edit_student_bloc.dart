@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:challenge_flutter/data/student_repository.dart';
@@ -34,6 +35,7 @@ class EditStudentBloc extends Bloc<EditStudentEvent, EditStudentState> {
         const EditStudentState.sucess(message: 'Aluno editado com sucesso!'),
       );
     } catch (e) {
+      log('Erro ao editar aluno -> $e', error: e);
       emit(const EditStudentState.error(message: 'Erro ao editar aluno!'));
     }
   }

@@ -122,7 +122,7 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                     ),
                     const SizedBox(height: 25),
                     CustomTextFormField(
-                      label: 'Data de Nascimento',
+                      label: 'Data de Nascimento*',
                       controller: birthDateController,
                       type: FormTypes.other,
                       keyboardType: TextInputType.datetime,

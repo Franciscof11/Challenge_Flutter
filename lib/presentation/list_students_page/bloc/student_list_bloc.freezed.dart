@@ -318,6 +318,8 @@ mixin _$StudentListState {
     required TResult Function(List<Student> students) data,
     required TResult Function() loading,
     required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -326,6 +328,8 @@ mixin _$StudentListState {
     TResult? Function(List<Student> students)? data,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,6 +338,8 @@ mixin _$StudentListState {
     TResult Function(List<Student> students)? data,
     TResult Function()? loading,
     TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -343,6 +349,8 @@ mixin _$StudentListState {
     required TResult Function(_StudentListDataState value) data,
     required TResult Function(_StudentListLoadingState value) loading,
     required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -351,6 +359,8 @@ mixin _$StudentListState {
     TResult? Function(_StudentListDataState value)? data,
     TResult? Function(_StudentListLoadingState value)? loading,
     TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -359,6 +369,8 @@ mixin _$StudentListState {
     TResult Function(_StudentListDataState value)? data,
     TResult Function(_StudentListLoadingState value)? loading,
     TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -427,6 +439,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     required TResult Function(List<Student> students) data,
     required TResult Function() loading,
     required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
   }) {
     return initial();
   }
@@ -438,6 +452,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     TResult? Function(List<Student> students)? data,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
   }) {
     return initial?.call();
   }
@@ -449,6 +465,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     TResult Function(List<Student> students)? data,
     TResult Function()? loading,
     TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -464,6 +482,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     required TResult Function(_StudentListDataState value) data,
     required TResult Function(_StudentListLoadingState value) loading,
     required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
   }) {
     return initial(this);
   }
@@ -475,6 +495,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     TResult? Function(_StudentListDataState value)? data,
     TResult? Function(_StudentListLoadingState value)? loading,
     TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
   }) {
     return initial?.call(this);
   }
@@ -486,6 +508,8 @@ class _$StudentListInitialStateImpl implements _StudentListInitialState {
     TResult Function(_StudentListDataState value)? data,
     TResult Function(_StudentListLoadingState value)? loading,
     TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -576,6 +600,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     required TResult Function(List<Student> students) data,
     required TResult Function() loading,
     required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
   }) {
     return data(students);
   }
@@ -587,6 +613,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     TResult? Function(List<Student> students)? data,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
   }) {
     return data?.call(students);
   }
@@ -598,6 +626,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     TResult Function(List<Student> students)? data,
     TResult Function()? loading,
     TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -613,6 +643,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     required TResult Function(_StudentListDataState value) data,
     required TResult Function(_StudentListLoadingState value) loading,
     required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
   }) {
     return data(this);
   }
@@ -624,6 +656,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     TResult? Function(_StudentListDataState value)? data,
     TResult? Function(_StudentListLoadingState value)? loading,
     TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
   }) {
     return data?.call(this);
   }
@@ -635,6 +669,8 @@ class _$StudentListDataStateImpl implements _StudentListDataState {
     TResult Function(_StudentListDataState value)? data,
     TResult Function(_StudentListLoadingState value)? loading,
     TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -699,6 +735,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     required TResult Function(List<Student> students) data,
     required TResult Function() loading,
     required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
   }) {
     return loading();
   }
@@ -710,6 +748,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     TResult? Function(List<Student> students)? data,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
   }) {
     return loading?.call();
   }
@@ -721,6 +761,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     TResult Function(List<Student> students)? data,
     TResult Function()? loading,
     TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -736,6 +778,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     required TResult Function(_StudentListDataState value) data,
     required TResult Function(_StudentListLoadingState value) loading,
     required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
   }) {
     return loading(this);
   }
@@ -747,6 +791,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     TResult? Function(_StudentListDataState value)? data,
     TResult? Function(_StudentListLoadingState value)? loading,
     TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
   }) {
     return loading?.call(this);
   }
@@ -758,6 +804,8 @@ class _$StudentListLoadingStateImpl implements _StudentListLoadingState {
     TResult Function(_StudentListDataState value)? data,
     TResult Function(_StudentListLoadingState value)? loading,
     TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -841,6 +889,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     required TResult Function(List<Student> students) data,
     required TResult Function() loading,
     required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
   }) {
     return error(message);
   }
@@ -852,6 +902,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     TResult? Function(List<Student> students)? data,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
   }) {
     return error?.call(message);
   }
@@ -863,6 +915,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     TResult Function(List<Student> students)? data,
     TResult Function()? loading,
     TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -878,6 +932,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     required TResult Function(_StudentListDataState value) data,
     required TResult Function(_StudentListLoadingState value) loading,
     required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
   }) {
     return error(this);
   }
@@ -889,6 +945,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     TResult? Function(_StudentListDataState value)? data,
     TResult? Function(_StudentListLoadingState value)? loading,
     TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
   }) {
     return error?.call(this);
   }
@@ -900,6 +958,8 @@ class _$StudentListErrorStateImpl implements _StudentListErrorState {
     TResult Function(_StudentListDataState value)? data,
     TResult Function(_StudentListLoadingState value)? loading,
     TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -917,4 +977,330 @@ abstract class _StudentListErrorState implements StudentListState {
   @JsonKey(ignore: true)
   _$$StudentListErrorStateImplCopyWith<_$StudentListErrorStateImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StudentSucessDeleteStateImplCopyWith<$Res> {
+  factory _$$StudentSucessDeleteStateImplCopyWith(
+          _$StudentSucessDeleteStateImpl value,
+          $Res Function(_$StudentSucessDeleteStateImpl) then) =
+      __$$StudentSucessDeleteStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$StudentSucessDeleteStateImplCopyWithImpl<$Res>
+    extends _$StudentListStateCopyWithImpl<$Res, _$StudentSucessDeleteStateImpl>
+    implements _$$StudentSucessDeleteStateImplCopyWith<$Res> {
+  __$$StudentSucessDeleteStateImplCopyWithImpl(
+      _$StudentSucessDeleteStateImpl _value,
+      $Res Function(_$StudentSucessDeleteStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$StudentSucessDeleteStateImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StudentSucessDeleteStateImpl implements _StudentSucessDeleteState {
+  const _$StudentSucessDeleteStateImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'StudentListState.sucessDelete(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StudentSucessDeleteStateImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StudentSucessDeleteStateImplCopyWith<_$StudentSucessDeleteStateImpl>
+      get copyWith => __$$StudentSucessDeleteStateImplCopyWithImpl<
+          _$StudentSucessDeleteStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Student> students) data,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
+  }) {
+    return sucessDelete(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Student> students)? data,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
+  }) {
+    return sucessDelete?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Student> students)? data,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
+    required TResult orElse(),
+  }) {
+    if (sucessDelete != null) {
+      return sucessDelete(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentListInitialState value) initial,
+    required TResult Function(_StudentListDataState value) data,
+    required TResult Function(_StudentListLoadingState value) loading,
+    required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
+  }) {
+    return sucessDelete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentListInitialState value)? initial,
+    TResult? Function(_StudentListDataState value)? data,
+    TResult? Function(_StudentListLoadingState value)? loading,
+    TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
+  }) {
+    return sucessDelete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentListInitialState value)? initial,
+    TResult Function(_StudentListDataState value)? data,
+    TResult Function(_StudentListLoadingState value)? loading,
+    TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
+    required TResult orElse(),
+  }) {
+    if (sucessDelete != null) {
+      return sucessDelete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StudentSucessDeleteState implements StudentListState {
+  const factory _StudentSucessDeleteState({required final String message}) =
+      _$StudentSucessDeleteStateImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$StudentSucessDeleteStateImplCopyWith<_$StudentSucessDeleteStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyListImplCopyWith<$Res> {
+  factory _$$EmptyListImplCopyWith(
+          _$EmptyListImpl value, $Res Function(_$EmptyListImpl) then) =
+      __$$EmptyListImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Student> students});
+}
+
+/// @nodoc
+class __$$EmptyListImplCopyWithImpl<$Res>
+    extends _$StudentListStateCopyWithImpl<$Res, _$EmptyListImpl>
+    implements _$$EmptyListImplCopyWith<$Res> {
+  __$$EmptyListImplCopyWithImpl(
+      _$EmptyListImpl _value, $Res Function(_$EmptyListImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? students = null,
+  }) {
+    return _then(_$EmptyListImpl(
+      students: null == students
+          ? _value._students
+          : students // ignore: cast_nullable_to_non_nullable
+              as List<Student>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EmptyListImpl implements _EmptyList {
+  const _$EmptyListImpl({required final List<Student> students})
+      : _students = students;
+
+  final List<Student> _students;
+  @override
+  List<Student> get students {
+    if (_students is EqualUnmodifiableListView) return _students;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_students);
+  }
+
+  @override
+  String toString() {
+    return 'StudentListState.empty(students: $students)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EmptyListImpl &&
+            const DeepCollectionEquality().equals(other._students, _students));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_students));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EmptyListImplCopyWith<_$EmptyListImpl> get copyWith =>
+      __$$EmptyListImplCopyWithImpl<_$EmptyListImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Student> students) data,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(String message) sucessDelete,
+    required TResult Function(List<Student> students) empty,
+  }) {
+    return empty(students);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Student> students)? data,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function(String message)? sucessDelete,
+    TResult? Function(List<Student> students)? empty,
+  }) {
+    return empty?.call(students);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Student> students)? data,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(String message)? sucessDelete,
+    TResult Function(List<Student> students)? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(students);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StudentListInitialState value) initial,
+    required TResult Function(_StudentListDataState value) data,
+    required TResult Function(_StudentListLoadingState value) loading,
+    required TResult Function(_StudentListErrorState value) error,
+    required TResult Function(_StudentSucessDeleteState value) sucessDelete,
+    required TResult Function(_EmptyList value) empty,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StudentListInitialState value)? initial,
+    TResult? Function(_StudentListDataState value)? data,
+    TResult? Function(_StudentListLoadingState value)? loading,
+    TResult? Function(_StudentListErrorState value)? error,
+    TResult? Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult? Function(_EmptyList value)? empty,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StudentListInitialState value)? initial,
+    TResult Function(_StudentListDataState value)? data,
+    TResult Function(_StudentListLoadingState value)? loading,
+    TResult Function(_StudentListErrorState value)? error,
+    TResult Function(_StudentSucessDeleteState value)? sucessDelete,
+    TResult Function(_EmptyList value)? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyList implements StudentListState {
+  const factory _EmptyList({required final List<Student> students}) =
+      _$EmptyListImpl;
+
+  List<Student> get students;
+  @JsonKey(ignore: true)
+  _$$EmptyListImplCopyWith<_$EmptyListImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

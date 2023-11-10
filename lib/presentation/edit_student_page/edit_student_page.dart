@@ -195,7 +195,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: mainBlue,
-                            fixedSize: const Size(190, 55)),
+                            fixedSize: const Size(110, 55)),
                         onPressed: () {
                           final formValid =
                               formKey.currentState?.validate() ?? false;
@@ -204,13 +204,8 @@ class _EditStudentPageState extends State<EditStudentPage> {
                         },
                         child: Row(
                           children: [
-                            const Icon(
-                              Icons.edit_outlined,
-                              size: 26,
-                            ),
-                            const SizedBox(width: 20),
                             Text(
-                              'Editar',
+                              'Salvar',
                               style: GoogleFonts.rubik(
                                 color: Colors.white,
                                 fontSize: 25,

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:challenge_flutter/domain/student_model.dart';
@@ -26,7 +27,7 @@ class CreateStudentBloc extends Bloc<CreateStudentEvent, CreateStudentState> {
     try {
       emit(const CreateStudentState.loading());
 
-      await Future.delayed(const Duration(milliseconds: 400));
+      await Future.delayed(const Duration(milliseconds: 500));
 
       await _repository.createStudent(event.student);
 
@@ -35,6 +36,7 @@ class CreateStudentBloc extends Bloc<CreateStudentEvent, CreateStudentState> {
             message: 'Aluno cadastrado com sucesso!'),
       );
     } catch (e) {
+      log('Erro ao cadastrar aluno -> $e', error: e);
       emit(const CreateStudentState.error(message: 'Erro ao cadastrar aluno!'));
     }
   }

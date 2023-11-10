@@ -25,7 +25,7 @@ class Student {
       'birthdate': birthdate,
       'cpf': cpf,
       'email': email,
-      'academicRecord': academicRecord,
+      'academic_record': academicRecord,
       'id': id,
     };
   }

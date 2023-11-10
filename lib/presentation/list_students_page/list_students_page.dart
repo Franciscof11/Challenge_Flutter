@@ -23,19 +23,36 @@ class ListStudentsPage extends StatelessWidget {
       body: BlocListener<StudentListBloc, StudentListState>(
         listenWhen: (previous, current) {
           return current.maybeWhen(
+            sucessDelete: (message) => true,
             error: (message) => true,
+            empty: (students) => true,
             orElse: () => false,
           );
         },
         listener: (context, state) {
           state.whenOrNull(
+            empty: (students) {
+              showToast(
+                message: 'Nenhum Aluno encontrado!',
+                color: Colors.red[400]!,
+                context: context,
+              );
+            },
+            sucessDelete: (message) {
+              showToast(
+                message: message,
+                color: const Color.fromARGB(255, 111, 255, 123),
+                context: context,
+              );
+            },
             error: (message) {
               showToast(
                 message: message,
                 color: Colors.red[400]!,
                 context: context,
               );
-/*               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+
+              /*  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(
                   message,
                   style: GoogleFonts.rubik(
@@ -98,13 +115,13 @@ class ListStudentsPage extends StatelessWidget {
                 ),
               ),
               BlocSelector<StudentListBloc, StudentListState, List<Student>>(
-                selector: (state) {
-                  return state.maybeWhen(
-                    data: (students) => students,
-                    orElse: () => [],
-                  );
-                },
-                builder: (context, students) => RemoveGlowEffect(
+                  selector: (state) {
+                return state.maybeWhen(
+                  data: (students) => students,
+                  orElse: () => [],
+                );
+              }, builder: (context, students) {
+                return RemoveGlowEffect(
                   child: Expanded(
                     child: RefreshIndicator(
                       onRefresh: () async {
@@ -154,8 +171,8 @@ class ListStudentsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ),
+                );
+              }),
             ],
           ),
         ),

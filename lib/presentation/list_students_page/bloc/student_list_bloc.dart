@@ -26,19 +26,19 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
     Emitter<StudentListState> emit,
   ) async {
     try {
-      void sortListByDate(List list) {
-        list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-      }
-
       emit(const StudentListState.loading());
+      await Future.delayed(const Duration(milliseconds: 500));
 
       final students = await _repository.getAllStudents();
 
-      sortListByDate(students);
+      if (students.isNotEmpty) {
+        sortListByDate(students);
 
-      await Future.delayed(const Duration(seconds: 1));
-
-      emit(StudentListState.data(students: students));
+        emit(StudentListState.data(students: students));
+      } else {
+        emit(const StudentListState.empty(students: <Student>[]));
+      }
+/*       throw Exception(); */
     } catch (e) {
       log('Erro ao buscar alunos -> $e', error: e);
       emit(const StudentListState.error(message: 'Erro ao buscar alunos!'));
@@ -53,8 +53,17 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
       await _repository.deleteStudent(event.student);
 
       add(const StudentListEvent.getAllStudents());
+
+      emit(const StudentListState.sucessDelete(message: 'Aluno deletado!'));
     } catch (e) {
+      log('Erro ao deletar aluno -> $e', error: e);
       emit(const StudentListState.error(message: 'Erro ao deletar aluno!'));
+
+      add(const StudentListEvent.getAllStudents());
     }
   }
+}
+
+void sortListByDate(List list) {
+  list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
 }
