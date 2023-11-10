@@ -171,15 +171,6 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                       controller: emailController,
                       type: FormTypes.email,
                     ),
-                    const SizedBox(height: 0),
-/*                     Loader<CreateStudentBloc, CreateStudentState>(
-                      selector: (state) {
-                        return state.maybeWhen(
-                          loading: () => true,
-                          orElse: () => false,
-                        );
-                      },
-                    ), */
                     const SizedBox(height: 50),
                     Align(
                       alignment: Alignment.center,
