@@ -66,12 +66,14 @@ class AuthPage extends StatelessWidget {
                     //
                     const SizedBox(height: 60),
                     CustomTextFormField(
+                      key: const Key('emailField'),
                       label: 'Email',
                       controller: emailController,
                       type: FormTypes.email,
                     ),
                     const SizedBox(height: 35),
                     CustomTextFormField(
+                      key: const Key('passwordField'),
                       label: 'Password',
                       isSecret: true,
                       controller: passwordController,
@@ -123,6 +125,7 @@ class AuthPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 50),
                     ElevatedButton(
+                      key: const Key('loginButton'),
                       onPressed: () async {
                         final formValid =
                             formKey.currentState?.validate() ?? false;
