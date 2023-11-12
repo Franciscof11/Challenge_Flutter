@@ -9,6 +9,7 @@ environment:
 dependencies:
   another_flushbar: ^1.12.30
   bloc: ^8.1.2
+  bloc_test: ^9.1.5
   device_preview: ^1.1.0
   dio: ^5.3.3
   flutter:
