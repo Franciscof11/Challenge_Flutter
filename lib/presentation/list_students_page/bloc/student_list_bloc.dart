@@ -57,8 +57,6 @@ class StudentListBloc extends Bloc<StudentListEvent, StudentListState> {
     } catch (e) {
       log('Erro ao deletar aluno -> $e', error: e);
       emit(const StudentListState.error(message: 'Erro ao deletar aluno!'));
-
-      add(const StudentListEvent.getAllStudents());
     }
   }
 }
