@@ -76,7 +76,7 @@ class ListStudentsPage extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               Center(
-                heightFactor: 14,
+                heightFactor: 10,
                 child: Loader<StudentListBloc, StudentListState>(
                   selector: (state) {
                     return state.maybeWhen(
