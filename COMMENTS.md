@@ -21,3 +21,10 @@ Ao decidir a arquitetura para o projeto, optei por implementar a Clean Architect
 
 Se eu tivesse mais tempo para desenvolver, implementaria melhor a parte do login, não usando uma api de crud mas algo pra authenticação como firebase_auth. Tambem criaria mais testes, e escreveria testes de integração, para completar os 3 tipos de testes.
 
+# Login's para autenticação
+
+email: test@test.com
+password: 123456
+
+email: chico@test.com
+password: test123
