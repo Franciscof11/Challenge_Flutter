@@ -189,13 +189,14 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                             const Icon(
                               Icons.add,
                               size: 26,
+                              color: Colors.white,
                             ),
                             const SizedBox(width: 6),
                             Text(
                               'Cadastrar',
                               style: GoogleFonts.rubik(
                                 color: Colors.white,
-                                fontSize: 25,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

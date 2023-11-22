@@ -147,8 +147,9 @@ class AuthPage extends StatelessWidget {
                       child: Text(
                         'Entrar',
                         style: GoogleFonts.rubik(
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ),

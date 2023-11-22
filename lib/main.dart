@@ -18,6 +18,7 @@ class MainApp extends StatelessWidget {
     return RepositoryProvider(
       create: (context) => StudentRepository(),
       child: MaterialApp(
+        theme: ThemeData(colorScheme: const ColorScheme.light()),
         debugShowCheckedModeBanner: false,
         initialRoute: '/SignInPage',
         routes: routes,

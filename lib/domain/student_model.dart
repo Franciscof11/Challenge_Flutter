@@ -39,7 +39,7 @@ class Student {
       birthdate: map['birthdate'] ?? 0,
       cpf: map['cpf'] ?? 0,
       email: map['email'] ?? '',
-      academicRecord: map['academicRecord'] ?? 0,
+      academicRecord: map['academic_record'] ?? 0,
       id: map['id'] ?? '',
     );
   }
